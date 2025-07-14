@@ -1,0 +1,25 @@
+// Highlighting dot (Education section)
+.highlighting-dot{
+    position: relative;
+
+    &::before{
+        content: "";
+        padding: 6px;
+        box-shadow: 0 0 10px 0.1px #1f817c;
+        border-radius: 50%;
+        background-color: #1f817c;
+        position: absolute;
+        top: 0;
+        left: -43px;
+        transition: all 0.2s;
+    }
+}
+
+.highlighting-dot:hover::before{
+    box-shadow: 0 0 14px 0.5px #1f817c, 0 0 15px 0.9px #1f817c;
+    transform: scale(1.02);
+}
+
+.grid-columns{
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}

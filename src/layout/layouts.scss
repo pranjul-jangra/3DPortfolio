@@ -1,0 +1,110 @@
+// Landing page nav items style
+.nav-items {
+    position: relative;
+    overflow: hidden;
+    transition: transform 1s ease, opacity 1s ease-in-out, color 0.3s ease-in-out;
+
+    &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #1299ab, transparent);
+        transition: left 0.5s ease;
+    }
+
+    &:hover::before {
+        left: 100%;
+    }
+
+    &:hover {
+        color: #1299ab;
+        transform: translateX(4px);
+    }
+}
+
+// Profile image blob
+@keyframes blob {
+
+    0%,
+    100% {
+        transform: scale(1) rotate(0deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+.animate-blob {
+    background: radial-gradient(circle at center, #0f766e, #0e0e0e00);
+    animation: blob 12s ease-in-out infinite;
+    filter: blur(30px);
+    opacity: 0.6;
+}
+
+// Typing effect
+.typing-cursor::after {
+    content: '|';
+    color: rgba(11, 137, 137, 0.311);
+}
+
+// Skills grid layout
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+// Projects container grid
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+// Card glowy div
+.glowy-div-dark {
+    background: radial-gradient(circle at center,
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(255, 255, 255, 0.06) 25%,
+            rgba(255, 255, 255, 0.03) 50%,
+            rgba(255, 255, 255, 0.01) 75%,
+            transparent 100%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(0.5px);
+    mix-blend-mode: overlay;
+}
+
+.glowy-div-light {
+    background: radial-gradient(circle at center,
+            rgba(2, 0, 13, 0.08) 0%,
+            rgba(0, 0, 0, 0.04) 25%,
+            rgba(0, 0, 0, 0.02) 50%,
+            rgba(0, 0, 0, 0.01) 75%,
+            transparent 100%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: blur(0.5px);
+    mix-blend-mode: overlay;
+}
+
+
+// Dark gradients
+.dark-gradient {
+    background: linear-gradient(to top right, black, transparent, transparent),
+        linear-gradient(to bottom right, rgba(0, 0, 0, 0.842), transparent, transparent);
+}

@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+*::selection {
+    background-color: rgb(16, 126, 126);
+    color: white;
+}
+
+* {
+    font-family: serif;
+    scrollbar-width: none;
+    scrollbar-color: #1a817ce9 transparent;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+

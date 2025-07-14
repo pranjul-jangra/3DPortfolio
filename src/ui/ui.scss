@@ -1,0 +1,20 @@
+.bounce {
+  animation: bounce-animation 4s ease-in-out infinite;
+}
+
+@keyframes bounce-animation {
+    0% { transform: translateY(0); }
+    10% { transform: translateY(-20px); }
+    20% { transform: translateY(0); }
+    28% { transform: translateY(-15px); }
+    38% { transform: translateY(0); }
+    45% { transform: translateY(-10px); }
+    55% { transform: translateY(0); }
+    62% { transform: translateY(-7px); }
+    70% { transform: translateY(0); }
+    76% { transform: translateY(-4px); }
+    81% { transform: translateY(0); }
+    85% { transform: translateY(-2px); }
+    87% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
