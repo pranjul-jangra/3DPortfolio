@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useInView } from 'motion/react';
+import resume from '../assets/Pranjul-Resume.pdf';
 import { motion } from 'motion/react';
 
 export default function Resume({ isLightMode }) {
@@ -25,7 +26,7 @@ export default function Resume({ isLightMode }) {
   useEffect(() => {
     const checkPdfExists = async () => {
       try {
-        const response = await fetch("/Pranjul-Resume.pdf", { method: 'HEAD' });
+        const response = await fetch(resume, { method: 'HEAD' });
         if (response.ok) {
           setLoading(false);
           setError(null);
@@ -49,7 +50,7 @@ export default function Resume({ isLightMode }) {
 
   // Open in new window
   const openInNewTab = () => {
-    window.open("/Pranjul-Resume.pdf", '_blank');
+    window.open(resume, '_blank');
   };
 
   // Conditional styles
@@ -94,7 +95,7 @@ export default function Resume({ isLightMode }) {
           <button onClick={openInNewTab} className="bg-blue-700 px-3 py-1 rounded hover:bg-blue-600 disabled:opacity-50 transition-colors" disabled={loading || error}>
             Open in New Tab
           </button>
-          <a href="/Pranjul-Resume.pdf" download="Pranjul-Resume.pdf" className="bg-green-700 px-3 py-1 rounded hover:bg-green-600 transition-colors">
+          <a href={resume} download={resume} className="bg-green-700 px-3 py-1 rounded hover:bg-green-600 transition-colors">
             Download Resume
           </a>
         </div>
@@ -124,7 +125,7 @@ export default function Resume({ isLightMode }) {
         {!loading && !error && (
           <div className="bg-white rounded-lg border border-gray-600 overflow-hidden w-full max-w-4xl">
             {renderResume && (
-              <iframe ref={iframeRef} tabIndex="-1" autoFocus={false} src="/Pranjul-Resume.pdf" width="100%" height="600" title="Resume PDF" className="border-0" />
+              <iframe ref={iframeRef} tabIndex="-1" autoFocus={false} src={resume} width="100%" height="600" title="Resume PDF" className="border-0" />
             )}
           </div>
         )}

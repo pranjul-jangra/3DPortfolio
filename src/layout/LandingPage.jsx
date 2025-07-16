@@ -101,7 +101,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
 
                 {/* Navigation */}
                 <nav className="absolute top-4 right-4 md:right-8 md:top-8 z-30 text-black">
-                    <button type="button" aria-label={showNav ? "Close navbar" : "Open navbar"} onClick={() => setShowNav(prev => !prev)} className={`w-12 h-12 p-2 flex items-center justify-center cursor-pointer ${translate} ${opacity} transition-all duration-500 text-white`}>
+                    <button type="button" aria-label={showNav ? "Close navbar" : "Open navbar"} onClick={() => setShowNav(prev => !prev)} className={`w-12 h-12 p-2 flex items-center justify-center cursor-pointer ${translate} ${opacity} transition-all duration-500 `}>
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                             <line className={`origin-center transition-transform duration-700 ${showNav ? "translate-y-[4.5px] rotate-45" : ""}`} x1="3" y1="6" x2="21" y2="6" />
                             <line className={`transition-opacity duration-200 ${showNav ? "opacity-0" : "opacity-500"}`} x1="3" y1="12" x2="21" y2="12" />

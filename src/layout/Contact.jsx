@@ -29,8 +29,15 @@ export default function Contact({ isLightMode }) {
                 {/* Form */}
                 <div className='flex items-center gap-6 justify-between w-full'>
                     <div>
-                        <h1 className={`text-3xl font-bold mb-2 ${cyanText} transition-all duration-[1.4s]`}>Let’s build something impactful</h1>
-                        <p className={`mb-7 transition-all duration-[1.4s] delay-[0.01s]`}>Got an idea, project, or opportunity? I’d love to hear from you.</p>
+                        {/* <h1 className={`text-3xl font-bold mb-2 ${cyanText} transition-all duration-[1.4s]`}>Let’s build something impactful</h1>
+                        <p className={`mb-7 transition-all duration-[1.4s] delay-[0.01s]`}>Got an idea, project, or opportunity? I’d love to hear from you.</p> */}
+                        <h2 className={`text-3xl font-bold mb-2 ${cyanText} transition-all duration-[1.4s]`}>Why Contact Me?</h2>
+                        <p className="text-base leading-relaxed max-w-xl mb-7">
+                            Whether you're building something exciting, looking for a reliable full-stack developer,
+                            or just want to bounce around ideas — I’m always open to meaningful conversations.
+                            I care about clean code, thoughtful design, and delivering real value through development.
+                        </p>
+
                         <Email isLightMode={isLightMode} />
                     </div>
                     <div className='w-full max-w-lg aspect-square shrink-0'>
@@ -40,17 +47,19 @@ export default function Contact({ isLightMode }) {
 
 
                 {/* Why contact me */}
-                <h2 className={`text-3xl font-bold mb-2 mt-14 ${cyanText} transition-all duration-[1.4s]`}>Why Contact Me?</h2>
-                <p className="text-base text-gray-300 leading-relaxed max-w-xl">
+                {/* <h2 className={`text-3xl font-bold mb-2 mt-14 ${cyanText} transition-all duration-[1.4s]`}>Why Contact Me?</h2>
+                <p className="text-base leading-relaxed max-w-xl">
                     Whether you're building something exciting, looking for a reliable full-stack developer,
                     or just want to bounce around ideas — I’m always open to meaningful conversations.
                     I care about clean code, thoughtful design, and delivering real value through development.
                     <br /><br />
                     Let's create something awesome together.
-                </p>
+                </p> */}
+
+                <h1 className={`text-3xl font-bold mb-2 mt-14 ${cyanText} transition-all duration-[1.4s]`}>Let’s build something impactful</h1>
+                <p className={`mb-7 transition-all duration-[1.4s] delay-[0.01s]`}>Got an idea, project, or opportunity? I’d love to hear from you.</p>
 
                 <ContactOptions isLightMode={isLightMode} />
-
             </section>
         </main>
     )

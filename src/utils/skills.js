@@ -56,6 +56,13 @@ export const skills = [
         category: "Frontend",
     },
     {
+        label: "Zustand",
+        icon: "/zustand.svg",
+        description: "Lightweight state management library with minimal boilerplate for React apps.",
+        proficiency: "Proficient",
+        category: "Frontend"
+    },
+    {
         label: "Chart.js",
         icon: "/Chartjs.svg",
         description: "Data visualization library for beautiful and interactive charts.",
@@ -108,7 +115,7 @@ export const skills = [
         label: "Node.js",
         icon: "/Node.js.svg",
         description: "JavaScript runtime for server-side development.",
-        proficiency: "Proficient",
+        proficiency: "Expert",
         category: "Backend",
     },
     {

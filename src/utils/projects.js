@@ -8,6 +8,11 @@ import sonexa2 from '../assets/sonexa2.png'
 import sonexa3 from '../assets/sonexa3.png'
 import sonexa4 from '../assets/sonexa4.png'
 
+import expensely1 from '../assets/expensely1.png';
+import expensely2 from '../assets/expensely2.png';
+import expensely3 from '../assets/expensely3.png';
+import expensely4 from '../assets/expensely4.png';
+
 
 
 export const projects = [
@@ -26,7 +31,16 @@ export const projects = [
         liveLink: "https://sonexa-chi.vercel.app/home",
         codeLink: "https://github.com/pranjul-jangra/Sonexa",
         images: [sonexa1, sonexa2, sonexa3, sonexa4],
-        stacks: ["React.js", "Tailwind CSS", "Axios", "Headless UI", "Motion", "Node.js", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer"],
+        stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Headless UI", "Motion", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer"],
+        type: "MERN"
+    },
+    {
+        title: "Expensely — Smarter Money Management",
+        description: "Track, analyze, and manage your finances effortlessly. Expensely brings filtering, real-time insights, and an intuitive UI to help you take control of your spending.",
+        liveLink: "https://expensely-blue.vercel.app",
+        codeLink: "https://github.com/pranjul-jangra/Expensely",
+        images: [expensely1, expensely2, expensely3, expensely4],
+        stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Chart.js", "Motion", "Lenis", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer", "Zod"],
         type: "MERN"
     },
 ]

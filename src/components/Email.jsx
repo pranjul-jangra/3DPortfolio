@@ -43,7 +43,7 @@ export default function Email({ isLightMode }) {
 
 
     return (
-        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 max-w-md mx-auto">
+        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 max-w-md">
             <input type="text" name="name" placeholder="Your Name" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />
             <input type="email" name="email" placeholder="Your Email" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />
             <textarea name="message" rows="5" placeholder="Your Message" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />

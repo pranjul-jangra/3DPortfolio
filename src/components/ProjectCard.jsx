@@ -32,7 +32,7 @@ export default function ProjectCard({ isLightMode, project }) {
             transitionSpeed={1000}
             className={`w-full min-w-[300px] shadow-lg hover:shadow-md ${shadow} border ${border} rounded-2xl transition-all duration-[1.4s] overflow-hidden`}
         >
-            <motion.div className={`group w-full bg-gradient-to-br ${cardStyle} ${textColor} backdrop-blur-sm p-5 transition-shadow duration-300`}>
+            <motion.div className={`group w-full h-full bg-gradient-to-br ${cardStyle} ${textColor} backdrop-blur-sm p-5 transition-shadow duration-300`}>
                 {/* Image container */}
                 <div className="relative w-full h-48 mb-4">
                     <AnimatePresence mode="wait">
