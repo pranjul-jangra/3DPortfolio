@@ -4,13 +4,15 @@ import { Github, Moon, Sun } from "lucide-react"
 import "./layouts.scss"
 import Logo from "../components/Logo"
 import { useNavigate } from "react-router-dom"
-import DisplacementSphere from './Test/DisplacementSphere'
-import ParticleBackground from '../ui/ParticleBackground'
+import DisplacementSphere from './sphere/DisplacementSphere'
+import useThemeStyles from '../hooks/useThemeStyles';
+import ParticleBackground from "../ui/ParticleBackground"
 
 
 
 export default function LandingPage({ isLightMode, themeSetter }) {
     const navigate = useNavigate();
+    const { bgColor, color, fillColor, cyanText, cardBg, shadow } = useThemeStyles();
 
     const [visible, setVisible] = useState(false);
     const [showNav, setShowNav] = useState(false);
@@ -24,11 +26,6 @@ export default function LandingPage({ isLightMode, themeSetter }) {
     // Conditional styles
     const opacity = visible ? 'opacity-100' : 'opacity-0';
     const translate = visible ? "translate-y-0" : "translate-y-4";
-    const bgColor = isLightMode ? "from-gray-100 via-gray-100/50 to-white" : "from-black/96 via-black/94 to-black/90";
-    const color = isLightMode ? "text-black" : "text-gray-100";
-    const fillColor = isLightMode ? "#000000ce" : "#ffffffd2";
-    const cyanText = isLightMode ? "text-teal-700/90" : "text-teal-500";
-    const cardBg = isLightMode ? "from-white via-gray-200/50 to-gray-300/20 shadow-black/5" : "from-zinc-900/96 via-zinc-800/94 to-zinc-800/90 shadow-gray-800/40";
 
     // Variants
     const navParentVariants = {
@@ -78,7 +75,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
     return (
         <>
             <main className={`w-full h-screen bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-                <ParticleBackground isLightMode={isLightMode} />
+                <ParticleBackground />
 
                 {/* Intro overlay */}
                 <div className="absolute inset-0 flex flex-col justify-center items-start p-4 z-20 sm:p-8 md:p-16">
@@ -112,7 +109,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
 
 
                 {/* Logo */}
-                <div className={`absolute top-4 left-4 md:left-8 md:top-8 z-30 ${translate} ${opacity} cursor-default transition-all duration-[1.6s]`}><Logo isLightMode={isLightMode} /></div>
+                <div className={`absolute top-4 left-4 md:left-8 md:top-8 z-30 ${translate} ${opacity} cursor-default transition-all duration-[1.6s]`}><Logo /></div>
 
                 {/* Github | Linkedin */}
                 <div className={`flex items-center gap-8 absolute bottom-4 left-4 md:left-8 md:bottom-8 font-mono z-20 px-3 py-2 ${translate} ${opacity} transition-all duration-[1.6s] delay-75 backdrop-blur-2xl bg-gradient-to-br ${cardBg} shadow-inner rounded-3xl`}>

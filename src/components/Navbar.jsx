@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import useThemeStyles from "../hooks/useThemeStyles";
 
 
-export default function Navbar({ isLightMode }) {
+export default function Navbar() {
     const location = useLocation();
     const navRef = useRef();
+    const { navShadow, navgradient } = useThemeStyles();
 
     // Translate navbar
     useEffect(() => {
@@ -30,12 +32,9 @@ export default function Navbar({ isLightMode }) {
         return location.pathname.includes(tab) ? "text-white brightness-125 contrast-125" : "text-white/50";
     }
 
-    const shadowColor = isLightMode ? "shadow-lg shadow-black/30" : "shadow-md shadow-zinc-800/20";
-    const gradientColor = isLightMode ? "from-[#1a817cef] via-[#1a817cea] to-[#1a817ce3]" : "from-[#1a817c9a] via-[#1a817caf] to-[#1a817cbf]";
-
 
     return (
-        <nav ref={navRef} className={`fixed top-5 left-1/2 -translate-1/2 z-50 px-5 pb-2 pt-3 rounded-b-[23px] text-white/85 bg-gradient-to-br ${gradientColor} font-semibold ${shadowColor} flex flex-nowrap items-center gap-10 transition-all duration-700 *:flex *:flex-col *:items-center *:text-shadow-2xs *:cursor-pointer`}>
+        <nav ref={navRef} className={`fixed top-5 left-1/2 -translate-1/2 z-50 px-5 pb-2 pt-3 rounded-b-[23px] text-white/85 bg-gradient-to-br ${navgradient} font-semibold ${navShadow} flex flex-nowrap items-center gap-10 transition-all duration-700 *:flex *:flex-col *:items-center *:text-shadow-2xs *:cursor-pointer`}>
             {/* Navigate to landing page */}
             <Link to={"/"}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 text-white/50">
@@ -60,10 +59,10 @@ export default function Navbar({ isLightMode }) {
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("projects")}`}></p>
             </Link>
 
-            <Link to={`/experience`} className={`${tabColor("experience")}`}>
+            {/* <Link to={`/experience`} className={`${tabColor("experience")}`}>
                 <p>Experience</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("experience")}`}></p>
-            </Link>
+            </Link> */}
 
             <Link to={'/contact-me'} className={`${tabColor("contact-me")}`}>
                 <p>Contact</p>

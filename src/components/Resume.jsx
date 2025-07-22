@@ -2,8 +2,12 @@ import { useState, useRef, useEffect } from 'react';
 import { useInView } from 'motion/react';
 import resume from '../assets/Pranjul-Resume.pdf';
 import { motion } from 'motion/react';
+import useThemeStyles from '../hooks/useThemeStyles';
 
-export default function Resume({ isLightMode }) {
+
+export default function Resume() {
+  const { cardBg, cyanText } = useThemeStyles();
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [renderResume, setRenderResume] = useState(false);     // animate childs & render iframe
@@ -52,10 +56,6 @@ export default function Resume({ isLightMode }) {
   const openInNewTab = () => {
     window.open(resume, '_blank');
   };
-
-  // Conditional styles
-  const cyanText = isLightMode ? "text-teal-700/90" : "text-teal-500";
-  const cardBg = isLightMode ? "from-gray-200/40 via-gray-200/50 to-gray-300/20" : "from-[#1f1f1f]/80 to-[#2d2d2d]/90";
 
   // Variants
   const parentVariant = {

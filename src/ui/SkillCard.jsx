@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { motion } from "motion/react";
+import useThemeStyles from "../hooks/useThemeStyles";
 import Tilt from 'react-parallax-tilt';
 
 export default function SkillCard({ isLightMode, skill, variants }) {
   const containerRef = useRef();
   const divRef = useRef();
+  const { color, grayText, cardBg, shadow, borderColor, skillTagStyle } = useThemeStyles();
 
   function handleMouseEnter() {
     if (divRef.current) {
@@ -29,14 +31,6 @@ export default function SkillCard({ isLightMode, skill, variants }) {
     }
   }
 
-  // Theme styles
-  const color = isLightMode ? "text-black" : "text-gray-100";
-  const grayText = isLightMode ? "text-gray-700" : "text-gray-400";
-  const cardBg = isLightMode ? "from-white to-gray-300/30" : "from-[#1f1f1f]/80 to-[#2d2d2d]/90";
-  const tagStyle = isLightMode ? "bg-gray-400/10 text-zinc-700 border-zinc-700/20" : "bg-white/10 text-white border-white/20";
-  const shadow = isLightMode ? "shadow-[#606e821e] hover:shadow-md hover:shadow-[#606e822e]" : "shadow-[#000000] hover:shadow-md";
-  const borderColor = isLightMode ? "border-gray-200/60 hover:border-gray-300/60" : "border-zinc-800 hover:border-zinc-600/80";
-
 
   return (
     <motion.div variants={variants}>
@@ -56,12 +50,12 @@ export default function SkillCard({ isLightMode, skill, variants }) {
           onMouseMove={handleMouseMove}
           className={`relative overflow-hidden rounded-3xl w-full h-full hover:saturate-150 p-5 flex flex-col gap-3 items-center bg-gradient-to-br ${cardBg}`}
         >
-          <p className={`px-2 py-0.5 text-xs font-medium rounded-full border ${tagStyle}`}>{skill.proficiency}</p>
-          <img className="w-12 h-12 p-1 my-0.5 flex items-center justify-center rounded-xl bg-black/10 dark:bg-white/10 backdrop-blur-md" style={{ boxShadow: `0 0 12px ${color}` }} src={skill.icon} alt="" />
+          <p className={`px-2 py-0.5 text-xs font-medium rounded-full border ${skillTagStyle}`}>{skill.proficiency}</p>
+          <img loading="lazy" className="w-12 h-12 p-1 my-0.5 flex items-center justify-center rounded-xl bg-black/10 dark:bg-white/10 backdrop-blur-md" style={{ boxShadow: `0 0 12px ${color}` }} src={skill.icon} alt="" />
           <p className={`text-lg font-semibold ${color} text-center`}>{skill.label}</p>
           <p className={`text-sm ${grayText} leading-snug text-center`}>{skill.description}</p>
 
-          {/* Moving glowy div */}
+          {/* Moving div */}
           <div ref={divRef} className={`absolute top-1/2 left-1/2 ${isLightMode ? "glowy-div-light" : "glowy-div-dark"}`}></div>
         </motion.div>
       </Tilt>

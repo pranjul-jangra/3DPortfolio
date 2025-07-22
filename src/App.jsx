@@ -4,12 +4,12 @@ import { Toaster } from 'sonner';
 import Lenis from '@studio-freight/lenis';
 import './App.css';
 
+const LandingPage = lazy(() => import('./layout/LandingPage'));
 const About = lazy(() => import('./layout/About'));
 const Skills = lazy(() => import('./layout/Skills'));
-const Contact = lazy(() => import('./layout/Contact'));
 const Projects = lazy(() => import('./layout/Projects'));
 const Experience = lazy(() => import('./layout/Experience'));
-const LandingPage = lazy(() => import('./layout/LandingPage'));
+const Contact = lazy(() => import('./layout/Contact'));
 
 
 
@@ -46,14 +46,13 @@ export default function App() {
       <Router>
         <Routes>
           <Route path='/' element={<LandingPage isLightMode={isLightMode} themeSetter={themeSetter} />} />
-          <Route path='/about-me' element={<About isLightMode={isLightMode} />} />
+          <Route path='/about-me' element={<About />} />
           <Route path='/skills' element={<Skills isLightMode={isLightMode} />} />
-          <Route path='/contact-me' element={<Contact isLightMode={isLightMode} />} />
-          <Route path='/projects' element={<Projects isLightMode={isLightMode} />} />
-          <Route path='/experience' element={<Experience isLightMode={isLightMode} />} />
+          <Route path='/contact-me' element={<Contact />} />
+          <Route path='/projects' element={<Projects />} />
+          {/* <Route path='/experience' element={<Experience />} /> */}
         </Routes>
       </Router>
-
 
 
       <Toaster richColors position="bottom-right" />

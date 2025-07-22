@@ -1,10 +1,13 @@
 import { useRef, useState, useEffect } from 'react'
 import { useInView, motion } from 'motion/react';
 import { educations } from '../utils/eduDetails';
+import useThemeStyles from '../hooks/useThemeStyles';
 import './components.scss'
 
 
-export default function AcademicDetail({ isLightMode }) {
+export default function AcademicDetail() {
+    const { cyanText, grayText } = useThemeStyles();
+
     // Animate items and paragraph separatly
     const [animateChilds, setAnimateChilds] = useState(false);
     const [animatePara, setAnimatePara] = useState(false);
@@ -19,10 +22,6 @@ export default function AcademicDetail({ isLightMode }) {
         if(isParentInView && !animateChilds) setAnimateChilds(true);
         if(IsParaInView && !animatePara) setAnimatePara(true);
     }, [isParentInView, IsParaInView]);
-
-    // Conditional styles
-    const cyanText = isLightMode ? "text-teal-700/90" : "text-teal-500";
-    const grayText = isLightMode ? "text-gray-800" : "text-gray-300/90";
 
     // Variants
     const parentVariant = {

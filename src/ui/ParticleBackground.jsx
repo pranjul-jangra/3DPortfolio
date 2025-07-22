@@ -1,18 +1,20 @@
 import { useRef, useMemo } from 'react'
+import useThemeStyles from '../hooks/useThemeStyles'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { Points, PointMaterial } from '@react-three/drei'
 import * as THREE from 'three'
 
 // Individual particle system component
-function ParticleSystem({ count = 1000, isLightMode }) {
+function ParticleSystem() {
     const meshRef = useRef()
+    const { particleCount, particleColor } = useThemeStyles();
 
     // Generate random positions and velocities
     const [positions, velocities] = useMemo(() => {
-        const positions = new Float32Array(count * 3)
-        const velocities = new Float32Array(count * 3)
+        const positions = new Float32Array(particleCount * 3)
+        const velocities = new Float32Array(particleCount * 3)
 
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < particleCount; i++) {
             const i3 = i * 3
 
             // Random positions in a large sphere
@@ -27,14 +29,14 @@ function ParticleSystem({ count = 1000, isLightMode }) {
         }
 
         return [positions, velocities]
-    }, [count])
+    }, [particleCount])
 
     // Animation loop
     useFrame((state, delta) => {
         if (meshRef.current) {
             const positions = meshRef.current.geometry.attributes.position.array
 
-            for (let i = 0; i < count; i++) {
+            for (let i = 0; i < particleCount; i++) {
                 const i3 = i * 3
 
                 // Update positions based on velocities
@@ -59,7 +61,7 @@ function ParticleSystem({ count = 1000, isLightMode }) {
         <Points ref={meshRef} positions={positions} stride={3} frustumCulled={false}>
             <PointMaterial
                 transparent
-                color={isLightMode ? "#006666" : "#b2d8d8"}
+                color={particleColor}
                 size={0.05}
                 sizeAttenuation={true}
                 depthWrite={false}
@@ -81,11 +83,11 @@ function CameraController() {
 }
 
 // Main component
-export default function ParticleBackground({isLightMode}) {
+export default function ParticleBackground() {
     return (
         <div className="w-dvw h-dvh fixed inset-0  overflow-hidden">
             <Canvas className="absolute inset-0" camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: 'transparent' }}>
-                <ParticleSystem count={isLightMode ? 1200 : 500} isLightMode={isLightMode} />
+                <ParticleSystem />
                 <CameraController />
             </Canvas>
         </div>

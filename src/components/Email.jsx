@@ -3,10 +3,12 @@ import { toast } from 'sonner';
 import emailjs from "emailjs-com";
 import './components.scss'
 import { Send } from 'lucide-react';
+import useThemeStyles from '../hooks/useThemeStyles';
 
-export default function Email({ isLightMode }) {
+export default function Email() {
     const form = useRef();
     const [isSending, setIsSending] = useState(false);
+    const { borderColor, shadow } = useThemeStyles();
 
     const sendEmail = async (e) => {
         e.preventDefault();
@@ -36,11 +38,6 @@ export default function Email({ isLightMode }) {
             setIsSending(false);
         }
     };
-
-    // Theme style
-    const borderColor = isLightMode ? "border-black" : "border-white/75";
-    const shadow = isLightMode ? "shadow-gray-400/20 focus-visible:shadow-[#02766e34] focus-visible:shadow-md" : "shadow-black focus-visible:shadow-[#02766e34] focus-visible:shadow-md";
-
 
     return (
         <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 max-w-md">

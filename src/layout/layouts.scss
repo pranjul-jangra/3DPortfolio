@@ -25,24 +25,9 @@
     }
 }
 
-// Profile image blob
-@keyframes blob {
-
-    0%,
-    100% {
-        transform: scale(1) rotate(0deg);
-    }
-
-    50% {
-        transform: scale(1.1) rotate(5deg);
-    }
-}
-
-.animate-blob {
-    background: radial-gradient(circle at center, #0f766e, #0e0e0e00);
-    animation: blob 12s ease-in-out infinite;
-    filter: blur(30px);
-    opacity: 0.6;
+// Profile image
+.img-contrast{
+    filter: brightness(1.05) saturate(1.05) contrast(1.02);
 }
 
 // Typing effect
@@ -58,7 +43,7 @@
 }
 
 // Projects container grid
-.projects-grid{
+.projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 }

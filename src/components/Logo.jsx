@@ -1,6 +1,7 @@
-export default function Logo({ isLightMode }) {
-    const fillColor = isLightMode ? "#000000ce" : "#ffffffd2";
-    const strokeColor = isLightMode ? "#0000009f" : "#ffffffd2";
+import useThemeStyles from "../hooks/useThemeStyles";
+
+export default function Logo() {
+    const { fillColor, strokeColor } = useThemeStyles();
 
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="100 40 100 120" className="w-12 aspect-square" stroke={strokeColor} strokeWidth="0.5" >

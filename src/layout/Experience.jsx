@@ -1,24 +1,19 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
-import ParticleBackground from '../ui/ParticleBackground'
 import ScrollIndicator from '../ui/ScrollIndicator'
 import UseUpdatePageHeight from '../hooks/UseUpdatePageHeight'
+import useThemeStyles from '../hooks/useThemeStyles'
+import ParticleBackground from '../ui/ParticleBackground';
 
 
-export default function Experience({ isLightMode }) {
+export default function Experience() {
     const pageInfo = UseUpdatePageHeight();
+    const { bgColor, color, cyanText } = useThemeStyles();
 
-    // Conditional styles
-    // const opacity = visible ? 'opacity-100' : 'opacity-0';
-    // const translate = visible ? "translate-y-0" : "translate-y-5";
-    const bgColor = isLightMode ? "from-gray-100/50 via-gray-100/30 to-gray-100/10" : "from-black/96 via-black/94 to-black/90";
-    const color = isLightMode ? "text-black" : "text-gray-100";
-    const cyanText = isLightMode ? "text-teal-700/90" : "text-teal-500";
 
     return (
         <main className={`w-full min-h-dvh flex flex-col items-center bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-            <Navbar isLightMode={isLightMode} />
-            <ParticleBackground isLightMode={isLightMode} />
+            <Navbar />
+            <ParticleBackground />
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 
 

@@ -14,7 +14,7 @@ export const skills = [
         category: "Frontend"
     },
     {
-        label: "SASS",
+        label: "SCSS",
         icon: "/Sass.svg",
         description: "CSS preprocessor with variables and nesting for modular styles.",
         proficiency: "Expert",
@@ -91,6 +91,13 @@ export const skills = [
         category: "Animations & Transitions"
     },
     {
+        label: "AOS",
+        icon: "/aos.svg",
+        description: "Scroll-triggered animation library for adding motion to elements with ease.",
+        proficiency: "Proficient",
+        category: "Animations & Transitions"
+    },
+    {
         label: "Lenis",
         icon: "/lenis.svg",
         description: "Smooth scroll library for fluid, inertia-based page navigation.",
@@ -105,7 +112,7 @@ export const skills = [
         category: "Frontend"
     },
     {
-        label: "shadcn UI",
+        label: "Shadcn UI",
         icon: "/shadcn.svg",
         description: "Customizable, pre-built UI components built on Tailwind + Radix UI.",
         proficiency: "Proficient",
