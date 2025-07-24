@@ -121,10 +121,20 @@ export default function TestingSphere(props) {
   }, [reduceMotion, windowSize]);
 
   useEffect(() => {
-    const onMouseMove = throttle(event => {
+    const handleMove = throttle(e => {
+      let clientX, clientY;
+
+      if (e.touches && e.touches.length > 0) {
+        clientX = e.touches[0].clientX;
+        clientY = e.touches[0].clientY;
+      } else {
+        clientX = e.clientX;
+        clientY = e.clientY;
+      }
+
       const position = {
-        x: event.clientX / window.innerWidth,
-        y: event.clientY / window.innerHeight,
+        x: clientX / window.innerWidth,
+        y: clientY / window.innerHeight,
       };
 
       rotationX.set(position.y / 2);
@@ -132,12 +142,12 @@ export default function TestingSphere(props) {
     }, 100);
 
     if (!reduceMotion && isInViewport) {
-      window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('mousemove', handleMove);
       window.addEventListener('touchmove', handleMove);
     }
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousemove', handleMove);
       window.removeEventListener('touchmove', handleMove);
     };
   }, [isInViewport, reduceMotion, rotationX, rotationY]);
