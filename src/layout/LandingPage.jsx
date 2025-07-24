@@ -88,9 +88,6 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                     </div>
                 </div>
 
-                {/* Overlay gradient */}
-                <div className={`absolute inset-0 w-dvw h-dvh z-10 backdrop-blur-[0.1px] ${isLightMode ? "" : "dark-gradient"}`}></div>
-
                 {/* Displacement sphere */}
                 <div className={`${opacity} transition-opacity duration-[2s]`}>
                     <DisplacementSphere isLightMode={isLightMode} />

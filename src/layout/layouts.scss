@@ -87,14 +87,6 @@
     mix-blend-mode: overlay;
 }
 
-
-// Dark gradients
-.dark-gradient {
-    background: linear-gradient(to top right, black, transparent, transparent),
-        linear-gradient(to bottom right, rgba(0, 0, 0, 0.842), transparent, transparent);
-}
-
-
 // Media queries
 @media (max-width: 470px) {
     .skills-grid {

@@ -18,7 +18,7 @@ const springConfig = {
   mass: 2,
 };
 
-export default function TestingSphere (props) {
+export default function TestingSphere(props) {
   const start = useRef(Date.now());
   const canvasRef = useRef();
   const mouse = useRef();
@@ -92,7 +92,7 @@ export default function TestingSphere (props) {
     lights.current = [dirLight, ambientLight];
     lights.current.forEach(light => scene.current.add(light));
 
-    return () =>  removeLights(lights.current);
+    return () => removeLights(lights.current);
   }, [props.isLightMode]);
 
   useEffect(() => {
@@ -133,10 +133,12 @@ export default function TestingSphere (props) {
 
     if (!reduceMotion && isInViewport) {
       window.addEventListener('mousemove', onMouseMove);
+      window.addEventListener('touchmove', handleMove);
     }
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('touchmove', handleMove);
     };
   }, [isInViewport, reduceMotion, rotationX, rotationY]);
 
@@ -171,7 +173,7 @@ export default function TestingSphere (props) {
   return (
     <Transition in timeout={3000} nodeRef={canvasRef}>
       {({ visible, nodeRef }) => (
-        <canvas aria-hidden className={styles.canvas} data-visible={visible} ref={nodeRef} {...props}/>
+        <canvas aria-hidden className={styles.canvas} data-visible={visible} ref={nodeRef} {...props} />
       )}
     </Transition>
   );
