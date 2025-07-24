@@ -11,7 +11,7 @@
         left: -100%;
         width: 100%;
         height: 2px;
-        background: linear-gradient(90deg, transparent, #1299ab, transparent);
+        background: linear-gradient(90deg, transparent, #1b91a4, transparent);
         transition: left 0.5s ease;
     }
 
@@ -20,13 +20,13 @@
     }
 
     &:hover {
-        color: #1299ab;
+        color: #1b91a4;
         transform: translateX(4px);
     }
 }
 
 // Profile image
-.img-contrast{
+.img-contrast {
     filter: brightness(1.05) saturate(1.05) contrast(1.02);
 }
 
@@ -92,4 +92,12 @@
 .dark-gradient {
     background: linear-gradient(to top right, black, transparent, transparent),
         linear-gradient(to bottom right, rgba(0, 0, 0, 0.842), transparent, transparent);
+}
+
+
+// Media queries
+@media (max-width: 470px) {
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
 }

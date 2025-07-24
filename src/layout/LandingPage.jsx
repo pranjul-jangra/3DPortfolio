@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, scale } from "framer-motion"
 import { Github, Moon, Sun } from "lucide-react"
 import "./layouts.scss"
 import Logo from "../components/Logo"
@@ -12,7 +12,7 @@ import ParticleBackground from "../ui/ParticleBackground"
 
 export default function LandingPage({ isLightMode, themeSetter }) {
     const navigate = useNavigate();
-    const { bgColor, color, fillColor, cyanText, cardBg, shadow } = useThemeStyles();
+    const { bgColor, color, fillColor, cyanText, cardBg } = useThemeStyles();
 
     const [visible, setVisible] = useState(false);
     const [showNav, setShowNav] = useState(false);
@@ -39,9 +39,9 @@ export default function LandingPage({ isLightMode, themeSetter }) {
     };
 
     const navItemVariants = {
-        initial: { y: -180, opacity: 0 },
-        animate: { y: 0, opacity: 1, transition: { duration: 0.2, ease: "easeOut" } },
-        exit: { y: -180, opacity: 0 },
+        initial: { y: -240, opacity: 0 },
+        animate: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
+        exit: { y: -180, opacity: 0, transition: { duration: 0.2 } },
     };
 
     // Typing effect
@@ -151,7 +151,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                         <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/about-me")}>About me</motion.p>
                         <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/skills")}>Skills</motion.p>
                         <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/projects")}>Projects</motion.p>
-                        <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/experience")}>Experience</motion.p>
+                        {/* <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/experience")}>Experience</motion.p> */}
                         <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/contact-me")}>Contact</motion.p>
                     </motion.article>
 

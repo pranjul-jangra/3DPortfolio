@@ -74,7 +74,7 @@ export default function Resume() {
 
   return (
     <motion.section ref={resuRef} variants={parentVariant} initial="initial" animate={renderResume && "animate"}>
-      <motion.h1 variants={childVariants} className={`text-4xl font-bold ${cyanText} `}>Resume </motion.h1>
+      <motion.h1 variants={childVariants} className={`text-4xl font-bold ${cyanText}`}>Resume </motion.h1>
 
       <motion.p variants={childVariants} className={`my-10`}>
         A detail-oriented developer focused on delivering clean, maintainable code and scalable architecture. Committed to building solutions that balance technical efficiency with user experience. Emphasizes code quality, consistency, and thoughtful design across all stages of development.

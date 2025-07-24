@@ -34,9 +34,9 @@ export default function Navbar() {
 
 
     return (
-        <nav ref={navRef} className={`fixed top-5 left-1/2 -translate-1/2 z-50 px-5 pb-2 pt-3 rounded-b-[23px] text-white/85 bg-gradient-to-br ${navgradient} font-semibold ${navShadow} flex flex-nowrap items-center gap-10 transition-all duration-700 *:flex *:flex-col *:items-center *:text-shadow-2xs *:cursor-pointer`}>
+        <nav ref={navRef} className={`fixed top-5 left-1/2 -translate-1/2 z-50 px-5 pb-2 pt-3 rounded-b-[23px] text-white/85 bg-gradient-to-br ${navgradient} font-semibold ${navShadow} flex flex-nowrap items-center gap-10 max-sm:gap-6 transition-all duration-700 *:flex *:flex-col *:items-center *:text-shadow-2xs *:cursor-pointer`}>
             {/* Navigate to landing page */}
-            <Link to={"/"}>
+            <Link to={"/"} aria-label="Navigate to landing page">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 text-white/50">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 12l9-8 9 8M4 10v10a1 1 0 001 1h5m10-11v10a1 1 0 01-1 1h-5" />
                 </svg>
@@ -44,27 +44,27 @@ export default function Navbar() {
             </Link>
 
             {/* Other page navigation */}
-            <Link to={'/about-me'} className={`${tabColor("about-me")}`}>
+            <Link to={'/about-me'} className={`${tabColor("about-me")}`} aria-label="Navigate to about page">
                 <p>About</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("about-me")}`}></p>
             </Link>
 
-            <Link to={'/skills'} className={`${tabColor("skills")}`}>
+            <Link to={'/skills'} className={`${tabColor("skills")}`} aria-label="Navigate to skills page">
                 <p>Skills</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("skills")}`}></p>
             </Link>
 
-            <Link to={'/projects'} className={`${tabColor("projects")}`}>
+            <Link to={'/projects'} className={`${tabColor("projects")}`} aria-label="Navigate to projects page">
                 <p>Projects</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("projects")}`}></p>
             </Link>
 
-            {/* <Link to={`/experience`} className={`${tabColor("experience")}`}>
+            {/* <Link to={`/experience`} className={`${tabColor("experience")}`} aria-label="Navigate to experience page">
                 <p>Experience</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("experience")}`}></p>
             </Link> */}
 
-            <Link to={'/contact-me'} className={`${tabColor("contact-me")}`}>
+            <Link to={'/contact-me'} className={`${tabColor("contact-me")}`} aria-label="Navigate to contact page">
                 <p>Contact</p>
                 <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("contact-me")}`}></p>
             </Link>

@@ -17,7 +17,7 @@ export default function Experience() {
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 
 
-            <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 flex flex-col justify-center items-start z-10'>
+            <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 max-lg:px-8 max-sm:px-4 flex flex-col justify-center items-start z-10'>
                 <h1 className={`text-3xl font-bold mb-2 ${cyanText} transition-all duration-[1.1s]`}>My Journey in Practice</h1>
                 <p className={`mb-2 transition-all duration-[1.1s] delay-[0.01s]`}>Though I haven't worked professionally yet, my experience comes from building projects with real-world challenges — where I’ve had to learn, adapt, and apply solutions just like in a production setting.</p>
             

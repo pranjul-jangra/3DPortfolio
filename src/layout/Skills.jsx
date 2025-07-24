@@ -71,7 +71,7 @@ export default function Skills({ isLightMode }) {
       <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 
 
-      <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 flex flex-col justify-center items-start z-10'>
+      <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 max-lg:px-8 max-sm:px-4 flex flex-col justify-center items-start z-10'>
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 ${cyanText}`}>What I’m Good At</motion.h1>
         <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>My approach to skill development is purpose-driven: I learn technologies as needed to solve real problems and deliver effective solutions. Through hands-on experience across diverse projects, I’ve gained a solid understanding of various tools and frameworks. These skills represent what I can confidently apply in real-world scenarios — not just what I’ve studied in theory.</motion.p>
 
@@ -85,7 +85,7 @@ export default function Skills({ isLightMode }) {
         >
           Frontend
         </motion.h2>
-        <motion.div variants={parentVariant} initial="initial" animate={showSection.frontend ? "animate" : ""} className='skills-grid gap-8 w-full'>
+        <motion.div variants={parentVariant} initial="initial" animate={showSection.frontend ? "animate" : ""} className='skills-grid gap-8 max-md:gap-6 max-sm:gap-4 w-full'>
           {
             skills.filter(s => s.category === "Frontend").map((skill, i) => (
               <SkillCard variants={childVariants} key={`frontend-${i}`} skill={skill} isLightMode={isLightMode} />
@@ -103,7 +103,7 @@ export default function Skills({ isLightMode }) {
         >
           Backend
         </motion.h2>
-        <motion.div variants={parentVariant} initial="initial" animate={showSection.backend ? "animate" : ""} className='skills-grid gap-8 w-full'>
+        <motion.div variants={parentVariant} initial="initial" animate={showSection.backend ? "animate" : ""} className='skills-grid gap-8 max-md:gap-6 max-sm:gap-4 w-full'>
           {
             skills.filter(s => s.category === "Backend").map((skill, i) => (
               <SkillCard variants={childVariants} key={`backend-${i}`} skill={skill} isLightMode={isLightMode} />
@@ -121,7 +121,7 @@ export default function Skills({ isLightMode }) {
         >
           Animations & Transitions
         </motion.h2>
-        <motion.div variants={parentVariant} initial="initial" animate={showSection.animations ? "animate" : ""} className='skills-grid gap-8 w-full'>
+        <motion.div variants={parentVariant} initial="initial" animate={showSection.animations ? "animate" : ""} className='skills-grid gap-8 max-md:gap-6 max-sm:gap-4 w-full'>
           {
             skills.filter(s => s.category === "Animations & Transitions").map((skill, i) => (
               <SkillCard variants={childVariants} key={`animations-${i}`} skill={skill} isLightMode={isLightMode} />
@@ -139,7 +139,7 @@ export default function Skills({ isLightMode }) {
         >
           Other Stacks & Tools
         </motion.h2>
-        <motion.div variants={parentVariant} initial="initial" animate={showSection.others ? "animate" : ""} className='skills-grid gap-8 w-full'>
+        <motion.div variants={parentVariant} initial="initial" animate={showSection.others ? "animate" : ""} className='skills-grid gap-8 max-md:gap-6 max-sm:gap-4 w-full'>
           {
             skills.filter(s => s.category === "Other Stacks & Tools").map((skill, i) => (
               <SkillCard variants={childVariants} key={`other-${i}`} skill={skill} isLightMode={isLightMode} />
@@ -157,7 +157,7 @@ export default function Skills({ isLightMode }) {
         >
           Version Control & Hosting
         </motion.h2>
-        <motion.div variants={parentVariant} initial="initial" animate={showSection.devops ? "animate" : ""} className='skills-grid gap-8 w-full'>
+        <motion.div variants={parentVariant} initial="initial" animate={showSection.devops ? "animate" : ""} className='skills-grid gap-8 max-md:gap-6 max-sm:gap-4 w-full'>
           {
             skills.filter(s => s.category === "Version Control & Hosting").map((skill, i) => (
               <SkillCard variants={childVariants} key={`devops-${i}`} skill={skill} isLightMode={isLightMode} />

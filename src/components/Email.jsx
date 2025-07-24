@@ -8,20 +8,20 @@ import useThemeStyles from '../hooks/useThemeStyles';
 export default function Email() {
     const form = useRef();
     const [isSending, setIsSending] = useState(false);
-    const { borderColor, shadow } = useThemeStyles();
+    const { inputsBorderColor, shadow } = useThemeStyles();
 
     const sendEmail = async (e) => {
         e.preventDefault();
-
         const formData = new FormData(form.current);
+        
         const name = formData.get("name")?.trim();
         const email = formData.get("email")?.trim();
         const message = formData.get("message")?.trim();
-
         if (!name || !email || !message) return toast.error("Please fill in all the fields.");
-        setIsSending(true);
-
+        
         try {
+            setIsSending(true);
+
             await emailjs.sendForm(
                 import.meta.env.VITE_SERVICE_ID,
                 import.meta.env.VITE_TEMPLATE_ID,
@@ -40,10 +40,10 @@ export default function Email() {
     };
 
     return (
-        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 max-w-md">
-            <input type="text" name="name" placeholder="Your Name" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />
-            <input type="email" name="email" placeholder="Your Email" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />
-            <textarea name="message" rows="5" placeholder="Your Message" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${borderColor}`} />
+        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 w-full md:max-w-md">
+            <input type="text" name="name" placeholder="Your Name" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
+            <input type="email" name="email" placeholder="Your Email" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
+            <textarea name="message" rows="5" placeholder="Your Message" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
             <input type="hidden" name="time" value={new Date().toLocaleString()} />
 
             <button disabled={isSending} type="submit" className="bg-teal-700/80 hover:bg-gradient-to-r hover:from-teal-700/90 hover:to-teal-800 text-white border-0 outline-0 focus:outline focus:outline-teal-700 outline-offset-2 font-semibold w-full rounded-md cursor-pointer transition-colors duration-300">

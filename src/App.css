@@ -2,12 +2,11 @@
 
 *::selection {
     background-color: #36a4a4;
-    /* background-color: #46eeee; */
     color: black;
 }
 
 * {
-    font-family: serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     scrollbar-width: none;
 }
 

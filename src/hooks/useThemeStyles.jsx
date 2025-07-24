@@ -7,6 +7,7 @@ export default function useThemeStyles() {
         cyanText: isLightMode ? "text-teal-700/90" : "text-teal-500",
         grayText: isLightMode ? "text-gray-800" : "text-gray-300/90",
         borderColor: isLightMode ? "border-gray-200/60 hover:border-gray-300/60" : "border-zinc-800 hover:border-zinc-600/80",
+        inputsBorderColor: isLightMode ? "border-zinc-950/20 hover:border-zinc-950/35" : "border-zinc-800 hover:border-zinc-600/80",
         fillColor: isLightMode ? "#000000ce" : "#ffffffff",
         strokeColor: isLightMode ? "#0000009f" : "#ffffffd2",
         navShadow: isLightMode ? "shadow-lg shadow-black/30" : "shadow-lg shadow-[#000000]",
@@ -21,7 +22,7 @@ export default function useThemeStyles() {
             "from-white via-gray-200/50 to-gray-300/20 shadow-black/5" :
             "from-zinc-900/96 via-zinc-800/94 to-zinc-800/90 shadow-gray-800/40",
         shadow: isLightMode ?
-            "shadow-xl shadow-[#676e625e] hover:shadow-md hover:shadow-[#606e823e]" :
+            "shadow-lg shadow-[#676e6221] hover:shadow-md hover:shadow-[#606e822e]" :
             "shadow-lg shadow-[#000000] hover:shadow-md hover:shadow-[#000000]",
         cardStyle: isLightMode ?
             "from-white via-gray-300/20 to-gray-300/30 border-gray-200/60 hover:border-gray-300/60 shadow-[#606e821e] hover:shadow-md hover:shadow-[#606e822e]" :

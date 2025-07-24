@@ -29,22 +29,23 @@ export default function Contact() {
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 
 
-            <section className='w-full min-h-dvh pt-24 pb-20 px-16 flex flex-col justify-start items-start z-10'>
+            <section className='w-full min-h-dvh pt-24 pb-20 px-16 max-lg:px-8 max-sm:px-4 flex flex-col justify-start items-start z-10'>
                 {/* Form */}
-                <div className='flex items-center gap-6 justify-between w-full'>
-                    <div>
-                        <motion.h2 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 ${cyanText}`}>Why Contact Me?</motion.h2>
-                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className="text-base leading-relaxed max-w-xl mb-7">
+                <div className='flex items-center gap-6 max-lg:gap-4 justify-between w-full'>
+                    <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>
+                        <h2 className={`text-3xl font-bold mb-2 ${cyanText}`}>Why Contact Me?</h2>
+                        <p className="text-base leading-relaxed max-w-xl mb-7">
                             Whether you're building something exciting, looking for a reliable full-stack developer,
                             or just want to bounce around ideas — I’m always open to meaningful conversations.
                             I care about clean code, thoughtful design, and delivering real value through development.
-                        </motion.p>
+                        </p>
 
-                        <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>
+                        <div>
                             <Email />
-                        </motion.div>
-                    </div>
-                    <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className='w-full max-w-lg aspect-square shrink-0'>
+                        </div>
+                    </motion.div>
+
+                    <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className='w-full max-w-lg max-lg:max-w-72 max-md:hidden aspect-square shrink-0'>
                         <ThreeDScene />
                     </motion.div>
                 </div>
