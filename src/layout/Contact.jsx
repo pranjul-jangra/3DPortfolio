@@ -33,11 +33,9 @@ export default function Contact() {
                 {/* Form */}
                 <div className='flex items-center gap-6 max-lg:gap-4 justify-between w-full'>
                     <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>
-                        <h2 className={`text-3xl font-bold mb-2 ${cyanText}`}>Why Contact Me?</h2>
+                        <h2 className={`text-3xl font-bold mb-2 ${cyanText}`}>Why Reach Out?</h2>
                         <p className="text-base leading-relaxed max-w-xl mb-7">
-                            Whether you're building something exciting, looking for a reliable full-stack developer,
-                            or just want to bounce around ideas — I’m always open to meaningful conversations.
-                            I care about clean code, thoughtful design, and delivering real value through development.
+                            Whether you're building something exciting, need a dependable full-stack developer, or just want to exchange ideas — I'm always open to meaningful conversations. I focus on quality code, clear design, and delivering real impact through development.
                         </p>
 
                         <div>
@@ -51,8 +49,8 @@ export default function Contact() {
                 </div>
 
 
-                <motion.h1 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-110px" }} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 mt-14 ${cyanText}`}>Let’s build something impactful</motion.h1>
-                <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-110px" }} transition={{ duration: 1.1 }} className={`mb-7`}>Got an idea, project, or opportunity? I’d love to hear from you.</motion.p>
+                <motion.h1 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-110px" }} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 mt-14 ${cyanText}`}>Let’s Build Something Impactful</motion.h1>
+                <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-110px" }} transition={{ duration: 1.1 }} className={`mb-7`}>Have an idea, opportunity, or challenge in mind? I’d love to connect.</motion.p>
 
                 <ContactOptions />
             </section>

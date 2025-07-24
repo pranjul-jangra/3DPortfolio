@@ -62,8 +62,8 @@ export default function Projects() {
 
             <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 max-lg:px-8 max-sm:px-4 flex flex-col justify-center items-start z-10'>
                 <motion.h1 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 ${cyanText}`}>Projects That Define My Craft</motion.h1>
-                <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`mb-2`}>Projects where design, animation, and UI/UX take the spotlight.</motion.p>
-                <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>Each project reflects my passion for clean design, seamless interaction, and purposeful user experiences. From animated interfaces to intuitive layouts, these builds demonstrate not just technical skill — but thoughtful execution that puts users first.</motion.p>
+                <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`mb-2`}>These builds put design, animation, and user experience at the forefront.</motion.p>
+                <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>Each one showcases a passion for seamless interaction and clear design — combining technical expertise with purposeful execution to create interfaces that truly serve the user.</motion.p>
 
                 {/* Full-stack projects */}
                 <motion.h2

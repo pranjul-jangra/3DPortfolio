@@ -83,7 +83,7 @@ export default function AcademicDetail() {
 
             <div ref={paraRef}>
                 <motion.p initial={{ y: 50, opacity: 0 }} animate={animatePara && { y: 0, opacity: 1, transition: { duration: 1.1 } }} className='mt-10'>
-                    My academic path reflects a steady progression from foundational concepts to specialized computer science knowledge. I believe in continuous learning and am committed to expanding my technical expertise through practical application and ongoing study.
+                    My academic journey shows a steady evolution — from grasping core principles to exploring advanced computer science topics. I’m a strong believer in continuous learning and actively expand my technical expertise through hands-on projects and real-world application.
                 </motion.p>
             </div>
         </motion.section>

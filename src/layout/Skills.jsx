@@ -73,7 +73,7 @@ export default function Skills({ isLightMode }) {
 
       <section className='w-full max-w-7xl min-h-dvh pt-24 pb-20 px-16 max-lg:px-8 max-sm:px-4 flex flex-col justify-center items-start z-10'>
         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }} className={`text-3xl font-bold mb-2 ${cyanText}`}>What I’m Good At</motion.h1>
-        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>My approach to skill development is purpose-driven: I learn technologies as needed to solve real problems and deliver effective solutions. Through hands-on experience across diverse projects, I’ve gained a solid understanding of various tools and frameworks. These skills represent what I can confidently apply in real-world scenarios — not just what I’ve studied in theory.</motion.p>
+        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.1 }}>I take a purpose-driven approach to skill-building — learning technologies as needed to solve meaningful problems. Through diverse, real-world projects, I’ve gained a practical understanding of tools and frameworks that go beyond theory. These are the skills I confidently apply in production environments.</motion.p>
 
         {/* Frontend stacks */}
         <motion.h2

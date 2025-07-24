@@ -77,7 +77,7 @@ export default function Resume() {
       <motion.h1 variants={childVariants} className={`text-4xl font-bold ${cyanText}`}>Resume </motion.h1>
 
       <motion.p variants={childVariants} className={`my-10`}>
-        A detail-oriented developer focused on delivering clean, maintainable code and scalable architecture. Committed to building solutions that balance technical efficiency with user experience. Emphasizes code quality, consistency, and thoughtful design across all stages of development.
+        A detail-oriented developer dedicated to writing maintainable code and building scalable systems. I focus on creating solutions that balance performance with user-centric design — emphasizing consistency, clarity, and thoughtful execution throughout the development lifecycle.
       </motion.p>
 
       {/* Resume container */}

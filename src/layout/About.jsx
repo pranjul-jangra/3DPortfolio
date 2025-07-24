@@ -54,24 +54,23 @@ export default function About() {
                     {/* Intro */}
                     <div className={`flex flex-col items-start justify-center h-full *:mb-4 *:tracking-wide`}>
                         <motion.h1 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }} className={`text-4xl font-bold ${cyanText}`}>Meet Pranjul</motion.h1>
-                        <motion.h2 initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>A full stack developer.</motion.h2>
 
-                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>Creating clean code and creative UIs with a passion for intuitive digital experiences.</motion.p>
-                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>Skilled in both frontend and backend development, I work with tools like like <span className='font-semibold'>React.js</span>, <span className='font-semibold'>Motion</span>, <span className='font-semibold'>Tailwind</span>, <span className='font-semibold'>Mongoose</span> and <span className='font-semibold'>Redis</span> to deliver functional and high-performance web apps.</motion.p>
-                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>I thrive on turning complex problems into elegant, scalable solutions — from building engaging UIs to architecting robust server-side systems with Node.js and Express.</motion.p>
+                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>A full stack developer passionate about intuitive digital experiences, clean architecture, and expressive user interfaces.</motion.p>
+                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>Proficient in both frontend and backend, I use tools like <span className='font-semibold'>React.js</span>, <span className='font-semibold'>Motion</span>, <span className='font-semibold'>Tailwind</span>, <span className='font-semibold'>Mongoose</span>, and <span className='font-semibold'>Redis</span> to build fast, functional, and user-focused web apps.</motion.p>
+                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }}>I enjoy translating complex ideas into scalable, elegant solutions — whether it's designing dynamic interfaces or engineering backend systems with Node.js and Express.</motion.p>
 
-                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }} className={`font-semibold ${cyanText}`}>Check Out Performance —</motion.p>
+                        <motion.p initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }} className={`font-semibold ${cyanText}`}>By the Numbers —</motion.p>
                         <motion.div initial={{ opacity: 0, y: 40 }} animate={visible ? { opacity: 1, y: 0 } : {}} transition={{ duration: 1.5 }} className={`flex items-center gap-10 *:font-semibold *:tracking-wide *:text-[14.6px]`}>
                             <p><span className={`${cyanText} mr-1`}>10+</span> Projects</p>
-                            <p><span className={`${cyanText} mr-1`}>5+</span> Full Stack Projects</p>
-                            <p><span className={`${cyanText} mr-1`}>20+</span> Skills</p>
+                            <p><span className={`${cyanText} mr-1`}>5+</span> Full Stack Builds</p>
+                            <p><span className={`${cyanText} mr-1`}>20+</span> Technical Skills</p>
                         </motion.div>
                     </div>
                 </article>
             </section>
 
 
-            <section className='px-16 max-lg:px-8 max-sm:px-4'>
+            <section className='px-16 max-lg:px-8 max-sm:px-4 z-10'>
                 {/* Academic details */}
                 <AcademicDetail />
 
