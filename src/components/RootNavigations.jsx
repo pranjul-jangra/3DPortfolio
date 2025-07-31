@@ -28,9 +28,9 @@ export default function RootNavigations({ setShowNav, isLightMode, themeSetter }
                 <Link className={`${shadow}`} to={'/about-me'}><UserCircle2Icon /> About</Link>
                 <Link className={`${shadow}`} to={'/skills'}><BrainCircuit /> Skills</Link>
                 <Link className={`${shadow}`} to={'/projects'}><FolderOpen /> Projects</Link>
-                <Link className={`${shadow}`} to={'/experience'}><Briefcase /> Experience</Link>
+                {/* <Link className={`${shadow}`} to={'/experience'}><Briefcase /> Experience</Link> */}
                 <Link className={`${shadow}`} to={'/contact-me'}><Mail /> Contact</Link>
-                <Link className={`${shadow}`} to={'/blog'}><NotebookText /> Blog</Link>
+                {/* <Link className={`${shadow}`} to={'/blog'}><NotebookText /> Blog</Link> */}
             </motion.article>
 
 
