@@ -170,10 +170,6 @@ export default function TestingSphere(props) {
     };
 
     animate();
-    // if (!reduceMotion && isInViewport) {
-    // } else {
-    //   renderer.current.render(scene.current, camera.current);
-    // }
 
     return () => {
       cancelAnimationFrame(animation);

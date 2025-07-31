@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react"
-import { AnimatePresence, motion, scale } from "framer-motion"
-import { Github, Moon, Sun } from "lucide-react"
+import { AnimatePresence } from "framer-motion"
 import "./layouts.scss"
 import Logo from "../components/Logo"
-import { useNavigate } from "react-router-dom"
 import DisplacementSphere from './sphere/DisplacementSphere'
 import useThemeStyles from '../hooks/useThemeStyles';
 import ParticleBackground from "../ui/ParticleBackground"
+import RootNavigations from "../components/RootNavigations"
 
 
 
 export default function LandingPage({ isLightMode, themeSetter }) {
-    const navigate = useNavigate();
     const { bgColor, color, fillColor, cyanText, cardBg } = useThemeStyles();
 
     const [visible, setVisible] = useState(false);
@@ -26,23 +24,6 @@ export default function LandingPage({ isLightMode, themeSetter }) {
     // Conditional styles
     const opacity = visible ? 'opacity-100' : 'opacity-0';
     const translate = visible ? "translate-y-0" : "translate-y-4";
-
-    // Variants
-    const navParentVariants = {
-        initial: {},
-        animate: {
-            transition: {
-                staggerChildren: -0.03,
-            },
-        },
-        exit: {},
-    };
-
-    const navItemVariants = {
-        initial: { y: -240, opacity: 0 },
-        animate: { y: 0, opacity: 1, transition: { duration: 0.3, ease: "easeOut" } },
-        exit: { y: -180, opacity: 0, transition: { duration: 0.2 } },
-    };
 
     // Typing effect
     useEffect(() => {
@@ -125,59 +106,9 @@ export default function LandingPage({ isLightMode, themeSetter }) {
             </main>
 
 
-
             {/* Nav elements */}
             <AnimatePresence>
-                {showNav && <motion.nav
-                    initial={{ backdropFilter: "blur(0)", y: -250, opacity: 0 }}
-                    animate={{ backdropFilter: "blur(10px)", y: 0, opacity: 1 }}
-                    exit={{ backdropFilter: "blur(0)", y: -300, opacity: 0, transition: { duration: 0.4, ease: "easeIn" } }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                    className={`w-dvw h-dvh fixed inset-0 z-20 flex justify-center items-center gap-4 ${color} bg-gradient-to-br from-black/40 via-black/35 to-black/30`}
-                    onClick={() => setShowNav(prev => !prev)}
-                >
-                    {/* Links */}
-                    <motion.article
-                        variants={navParentVariants}
-                        initial="initial"
-                        animate="animate"
-                        exit="exit"
-                        className="flex flex-col items-start gap-4 w-40 *:font-bold *:text-2xl *:cursor-pointer *:w-full"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/about-me")}>About me</motion.p>
-                        <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/skills")}>Skills</motion.p>
-                        <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/projects")}>Projects</motion.p>
-                        {/* <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/experience")}>Experience</motion.p> */}
-                        <motion.p variants={navItemVariants} className="nav-items" onClick={() => navigate("/contact-me")}>Contact</motion.p>
-                    </motion.article>
-
-
-                    {/* Theme changer */}
-                    {
-                        isLightMode
-                            ?
-                            <motion.div
-                                initial={{ opacity: 0.2, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.3, transition: { duration: 0.14 } }}
-                                transition={{ duration: 0.6, ease: "easeIn" }}
-                                key={"dark"}
-                                className="absolute bottom-9 right-9 w-10 aspect-square cursor-pointer" onClick={e => { e.stopPropagation(); themeSetter(); }}>
-                                <Moon className="w-full h-full" />
-                            </motion.div>
-                            :
-                            <motion.div
-                                initial={{ opacity: 0.2, y: -20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                exit={{ opacity: 0, scale: 0.3, transition: { duration: 0.14 } }}
-                                transition={{ duration: 0.6, ease: "easeIn" }}
-                                key={'light'}
-                                className="absolute bottom-9 right-9 w-10 aspect-square cursor-pointer" onClick={e => { e.stopPropagation(); themeSetter(); }}>
-                                <Sun className="w-full h-full" />
-                            </motion.div>
-                    }
-                </motion.nav>}
+                {showNav && <RootNavigations setShowNav={setShowNav} isLightMode={isLightMode} themeSetter={themeSetter} />}
             </AnimatePresence>
         </>
     )
