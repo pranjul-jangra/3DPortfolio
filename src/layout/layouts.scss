@@ -7,6 +7,13 @@
 .typing-cursor::after {
     content: '|';
     color: rgba(11, 137, 137, 0.311);
+    animation: blink 1.3s steps(2, start) infinite;
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
 }
 
 // Skills grid layout

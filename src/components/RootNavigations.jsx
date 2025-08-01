@@ -23,7 +23,6 @@ export default function RootNavigations({ setShowNav, isLightMode, themeSetter }
                 animate={{ y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
                 exit={{ y: -90, opacity: 0 }}
                 className={`grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 *:w-40 *:h-20 *:rounded-xl *:flex *:items-center *:justify-start *:gap-2 *:backdrop-blur-3xl ${isLightMode ? "*:bg-white/20" : "*:bg-black/20"} *:p-4 *:shadow-lg *:hover:shadow-md *:hover:-translate-y-1.5 *:transition-all *:duration-200`}
-                onClick={(e) => e.stopPropagation()}
             >
                 <Link className={`${shadow}`} to={'/about-me'}><UserCircle2Icon /> About</Link>
                 <Link className={`${shadow}`} to={'/skills'}><BrainCircuit /> Skills</Link>

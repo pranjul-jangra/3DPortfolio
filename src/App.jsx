@@ -42,7 +42,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <section className={`selection:bg-zinc-600/30 ${isLightMode ? "selection:text-black" : "selection:text-white"}`}>
       <Router>
         <Routes>
           <Route path='/' element={<LandingPage isLightMode={isLightMode} themeSetter={themeSetter} />} />
@@ -55,7 +55,7 @@ export default function App() {
       </Router>
 
 
-      <Toaster richColors position="bottom-right" />
-    </>
+      <Toaster theme={isLightMode ? "light" : "dark"} position="bottom-right" />
+    </section>
   )
 }

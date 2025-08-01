@@ -16,7 +16,7 @@ export default function ProjectCard({ project, variants }) {
 
 
     return (
-        <motion.div variants={variants} className="h-full">
+        <motion.div variants={variants} className="h-full group">
             <Tilt
                 glareEnable={true}
                 glareMaxOpacity={0.02}
@@ -40,12 +40,27 @@ export default function ProjectCard({ project, variants }) {
                             exit={{ opacity: 0, scale: 0, transition: { duration: 0.1 } }}
                             transition={{ duration: 0.3 }}
                         />
+
+                        {/* Carousal dots */}
+                        {
+                            images.length > 1 && <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 rounded-full bg-black/30 p-1 opacity-50 group-hover:opacity-100 transition-opacity duration-200">
+                                {images.map((_, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setCurrentImg(index)}
+                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImg ? 'bg-white scale-110' : 'bg-white/50'}`}
+                                />
+                                ))}
+                            </div>
+                        }
+
+                        {/* Carousal buttons */}
                         {images.length > 1 && (
                             <>
-                                <button type="button" onClick={prevImage} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full" aria-label="Previous Image">
+                                <button type="button" onClick={prevImage} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" aria-label="Previous Image">
                                     <ChevronLeft size={18} />
                                 </button>
-                                <button type="button" onClick={nextImage} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full" aria-label="Next Image">
+                                <button type="button" onClick={nextImage} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" aria-label="Next Image">
                                     <ChevronRight size={18} />
                                 </button>
                             </>
@@ -63,10 +78,10 @@ export default function ProjectCard({ project, variants }) {
 
                     <div className="flex gap-3">
                         <a href={liveLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 text-sm bg-teal-700/80 hover:bg-teal-700 text-white rounded-md transition-colors duration-300">
-                            <Link className="w-5 h-5" />Live
+                            <Link className="w-4 h-4" />Live
                         </a>
                         <a href={codeLink} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-4 py-2 text-sm bg-gray-700 text-white rounded-md hover:bg-gray-800 transition">
-                            <Github className="w-5 h-5" /> Code
+                            <Github className="w-4 h-4" /> Code
                         </a>
                     </div>
                 </motion.div>
