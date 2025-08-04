@@ -85,7 +85,7 @@ function CameraController() {
 // Main component
 export default function ParticleBackground() {
     return (
-        <div className="w-dvw h-dvh fixed inset-0  overflow-hidden">
+        <div className="w-dvw h-dvh fixed inset-0 overflow-hidden pointer-events-none">
             <Canvas className="absolute inset-0" camera={{ position: [0, 0, 5], fov: 60 }} style={{ background: 'transparent' }}>
                 <ParticleSystem />
                 <CameraController />

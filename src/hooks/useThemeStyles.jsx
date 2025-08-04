@@ -3,18 +3,25 @@ export default function useThemeStyles() {
 
     return {
         bgColor: isLightMode ? "from-gray-100 via-gray-100/50 to-white" : "from-black/96 via-black/94 to-black/90",
+        footerBg: isLightMode ? "from-gray-200 via-gray-200/50 to-gray-200" : "from-black/96 via-black/94 to-black/90",
+        navgradient: isLightMode ? "from-[#1a817cef] via-[#1a817cea] to-[#1a817ce3]" : "from-[#1a817c9a] via-[#1a817caf] to-[#1a817cbf]",
+        grayBg: isLightMode ? "bg-gray-200" : "bg-gray-800/80",
+        githubCardBg: isLightMode ? "bg-gray-200" : "bg-zinc-900",
+        
         color: isLightMode ? "text-black" : "text-gray-100",
         cyanText: isLightMode ? "text-teal-700/90" : "text-teal-500",
         grayText: isLightMode ? "text-gray-800" : "text-gray-300/90",
-        borderColor: isLightMode ? "border-gray-200/60 hover:border-gray-300/60" : "border-zinc-800 hover:border-zinc-600/80",
-        inputsBorderColor: isLightMode ? "border-zinc-950/20 hover:border-zinc-950/35" : "border-zinc-800 hover:border-zinc-600/80",
         fillColor: isLightMode ? "#000000ce" : "#ffffffff",
         strokeColor: isLightMode ? "#0000009f" : "#ffffffd2",
+        
+        border: isLightMode ? "border-gray-200/60 hover:border-gray-300/60" : "border-zinc-800 hover:border-zinc-600/80",
+        footerBorder: isLightMode ? "border-gray-400" : "border-zinc-600",
+        githubCardBorder: isLightMode ? "border-gray-300/80" : "border-zinc-700",
+        inputsBorderColor: isLightMode ? "border-zinc-950/20 hover:border-zinc-950/35" : "border-zinc-800 hover:border-zinc-600/80",
+        
         navShadow: isLightMode ? "shadow-lg shadow-black/30" : "shadow-lg shadow-[#000000]",
-        navgradient: isLightMode ? "from-[#1a817cef] via-[#1a817cea] to-[#1a817ce3]" : "from-[#1a817c9a] via-[#1a817caf] to-[#1a817cbf]",
         tagsStyle: isLightMode ? "text-cyan-400 *:bg-cyan-900/70" : "text-cyan-400 *:bg-cyan-900/30",
         skillTagStyle: isLightMode ? "bg-gray-400/10 text-zinc-700 border-zinc-700/20" : "bg-white/10 text-white border-white/20",
-        border: isLightMode ? "border-gray-200/60 hover:border-gray-300/60" : "border-zinc-800 hover:border-zinc-600/80",
         particleCount: isLightMode ? 1200 : 500,
         particleColor: isLightMode ? "#006666" : "#b2d8d8",
 

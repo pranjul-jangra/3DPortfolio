@@ -6,7 +6,7 @@ import Tilt from 'react-parallax-tilt';
 export default function SkillCard({ isLightMode, skill, variants }) {
   const containerRef = useRef();
   const divRef = useRef();
-  const { color, grayText, cardBg, shadow, borderColor, skillTagStyle } = useThemeStyles();
+  const { color, grayText, cardBg, shadow, border, skillTagStyle } = useThemeStyles();
 
   function handleMouseEnter() {
     if (divRef.current) {
@@ -41,7 +41,7 @@ export default function SkillCard({ isLightMode, skill, variants }) {
         tiltMaxAngleX={8}
         tiltMaxAngleY={8}
         transitionSpeed={1000}
-        className={`rounded-3xl overflow-hidden w-full h-full border ${borderColor} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+        className={`rounded-3xl overflow-hidden w-full h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
       >
         <motion.div
           ref={containerRef}

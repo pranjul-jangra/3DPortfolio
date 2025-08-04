@@ -16,6 +16,7 @@ export default function RootNavigations({ setShowNav, isLightMode, themeSetter }
             transition={{ duration: 0.5, ease: "easeOut" }}
             className={`w-dvw h-dvh fixed inset-0 z-20 flex justify-center items-center gap-4 ${color} `}
             onClick={() => setShowNav(prev => !prev)}
+            data-lenis-prevent
         >
             {/* Links */}
             <motion.article
