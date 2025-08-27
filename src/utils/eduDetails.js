@@ -2,6 +2,7 @@ export const educations = [
     {
         degree: "Master of Computer Applications (MCA)",
         year: "2025-2027 (Present)",
+        school: "Chaudhary Devi Lal University",
         board: "Chaudhary Devi Lal University, Sirsa",
     },
     {
