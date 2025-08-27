@@ -13,52 +13,21 @@ export const languageColors = {
   Go: 'bg-cyan-400',
   Rust: 'bg-amber-600',
   PHP: 'bg-violet-500',
-  Ruby: 'bg-rose-500',
-  Dart: 'bg-cyan-700',
-  Kotlin: 'bg-purple-500',
-  Swift: 'bg-orange-500',
-  Scala: 'bg-rose-400',
-  Haskell: 'bg-lime-500',
-  Lua: 'bg-teal-400',
-  Elixir: 'bg-fuchsia-500',
-  Shell: 'bg-neutral-500',
-  Bash: 'bg-neutral-600',
   SQL: 'bg-blue-300',
   R: 'bg-teal-300',
 
   // Frontend Libraries/Frameworks
   React: 'bg-sky-500',
   NextJS: 'bg-zinc-700',
-  Vue: 'bg-emerald-500',
-  Nuxt: 'bg-green-600',
   Angular: 'bg-red-600',
   Svelte: 'bg-orange-600',
-  Solid: 'bg-indigo-600',
-  Astro: 'bg-fuchsia-600',
-  jQuery: 'bg-blue-500',
 
   // Backend Frameworks
   Node: 'bg-green-700',
   Express: 'bg-gray-700',
-  Fastify: 'bg-gray-600',
-  NestJS: 'bg-rose-600',
-  Django: 'bg-green-600',
-  Flask: 'bg-gray-500',
-  Laravel: 'bg-red-500',
   Spring: 'bg-green-500',
-  Rails: 'bg-pink-600',
-  Phoenix: 'bg-orange-500',
-
-  // Mobile / Desktop
-  ReactNative: 'bg-sky-400',
-  Flutter: 'bg-cyan-500',
-  Electron: 'bg-gray-700',
 
   // Static Site / Headless CMS
-  Gatsby: 'bg-purple-600',
-  Hugo: 'bg-emerald-700',
-  Strapi: 'bg-indigo-700',
-  Contentful: 'bg-blue-500',
   Sanity: 'bg-red-400',
 
   // DevOps & Tools
