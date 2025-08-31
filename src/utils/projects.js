@@ -13,6 +13,12 @@ import expensely2 from '../assets/expensely2.png';
 import expensely3 from '../assets/expensely3.png';
 import expensely4 from '../assets/expensely4.png';
 
+import yovo1 from '../assets/yovo1.png';
+import yovo2 from '../assets/yovo2.png';
+import yovo3 from '../assets/yovo3.png';
+import yovo4 from '../assets/yovo4.png';
+import yovo5 from '../assets/yovo5.png';
+
 
 
 export const projects = [
@@ -41,6 +47,20 @@ export const projects = [
         codeLink: "https://github.com/pranjul-jangra/Expensely",
         images: [expensely1, expensely2, expensely3, expensely4],
         stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Chart.js", "Motion", "Lenis", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer", "Zod"],
+        type: "MERN"
+    },
+    {
+        title: "Yovo — Social Media Website",
+        description: "A full-stack social media platform where users can connect, share content, and communicate in real-time. Yovo includes media posting, likes, comments, shares, follows, messaging, profile management, and an explore page — all with a modern responsive UI.",
+        liveLink: "https://yovo.vercel.app/",
+        codeLink: "https://github.com/pranjul-jangra/yovo",
+        images: [yovo1, yovo2, yovo3, yovo4, yovo5],
+        stacks: [
+            "React.js", "Zustand", "Tailwind CSS", "Axios", "Socket.io",
+            "Motion", "Lenis", "Sonner", "React Router", "Node.js", "Express.js", "Mongoose ODM",
+            "Cloudinary", "Multer", "JWT", "Bcrypt", "Nodemailer",
+            "UA-Parser", "Express-Rate-Limit"
+        ],
         type: "MERN"
     },
 ]
