@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useInView, motion } from 'motion/react';
-import Navbar from '../components/Navbar';
 import SkillCard from '../ui/SkillCard';
 import { skills } from '../utils/skills';
 import './layouts.scss'
@@ -66,7 +65,6 @@ export default function Skills({ isLightMode }) {
 
   return (
     <main className={`w-full min-h-dvh flex flex-col items-center bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-      <Navbar />
       <ParticleBackground />
       <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 

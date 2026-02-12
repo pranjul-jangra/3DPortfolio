@@ -1,17 +1,27 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, lazy } from "react"
 import { AnimatePresence } from "framer-motion"
+import { motion } from 'motion/react';
 import "./layouts.scss"
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
-import DisplacementSphere from './sphere/DisplacementSphere'
+import DisplacementSphere from './sphere/DisplacementSphere';
 import useThemeStyles from '../hooks/useThemeStyles';
-import ParticleBackground from "../ui/ParticleBackground"
-import RootNavigations from "../components/RootNavigations"
+import ParticleBackground from "../ui/ParticleBackground";
+import RootNavigations from "../components/RootNavigations";
+import Tilt from 'react-parallax-tilt';
+
 import GitHubStats from "../components/GitHubStats";
+const LSkills = lazy(() => import("../components/landingPageComponents/LSkills"));
+import { LProjects } from "../components/landingPageComponents/LProjects";
+import LAbout from "../components/landingPageComponents/LAbout";
+import LEducation from "../components/landingPageComponents/LEducation";
+import LContact from "../components/landingPageComponents/LContact";
+import resume from "../assets/Pranjul-Resume.pdf";
+import HeroCards from "../ui/HeroCards";
 
 
 export default function LandingPage({ isLightMode, themeSetter }) {
-    const { bgColor, color, fillColor, cyanText, cardBg } = useThemeStyles();
+    const { bgColor, color, fillColor, cyanText, cardStyle, border } = useThemeStyles();
 
     const [visible, setVisible] = useState(false);
     const [showNav, setShowNav] = useState(false);
@@ -31,7 +41,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
 
     // Conditional styles
     const opacity = visible ? 'opacity-100' : 'opacity-0';
-    const translate = visible ? "translate-y-0" : "translate-y-4";
+    const translate = visible ? "translate-y-0" : "translate-y-6";
 
     // Typing effect
     useEffect(() => {
@@ -60,6 +70,24 @@ export default function LandingPage({ isLightMode, themeSetter }) {
         return () => clearTimeout(delay);
     }, []);
 
+    // Variants
+    const parentVariant = {
+        initial: { opacity: 0 },
+        animate: {
+            opacity: 1,
+            transition: {
+                duration: 1.4,
+                staggerChildren: 0.3,
+                delayChildren: 0.6
+            }
+        },
+    };
+
+    const childVariants = {
+        initial: { opacity: 0, y: 25 },
+        animate: { opacity: 1, y: 0, transition: { duration: 1.4 } }
+    };
+
 
     return (
         <>
@@ -70,11 +98,46 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                     {/* Intro overlay */}
                     <div className="absolute inset-0 flex flex-col justify-center items-start p-4 z-20 sm:p-8 md:p-16">
                         <div className="max-w-2xl">
-                            <p className={`text-2xl max-sm:text-3xl tracking-widest uppercase mb-3.5 font-extrabold ${translate} ${opacity} transition-all duration-[1.4s] ${window.innerWidth >= 768 ? cyanText : ""}`}>Pranjul</p>
+                            <p className={`text-2xl max-sm:text-3xl font-playfair tracking-widest uppercase mb-1.5 font-extrabold ${translate} ${opacity} transition-all duration-[1.4s] ${window.innerWidth >= 768 ? cyanText : ""}`}>Pranjul</p>
                             <h1 translate="no" className={`text-4xl md:text-6xl lg:text-7xl max-sm:text-[25px] leading-tight font-semibold whitespace-nowrap typing-cursor ${translate} ${opacity} transition-all duration-[1.4s] delay-75`}>
                                 {text}
                             </h1>
-                            <p className={`text-md max-sm:text-sm tracking-widest uppercase mt-4 font-semibold ${translate} ${opacity} transition-all duration-[1.55s]`}>Building seamless web experiences with MERN & modern tools.</p>
+                            <p className={`text-md max-sm:text-sm tracking-widest uppercase mt-2 font-semibold ${translate} ${opacity} transition-all duration-[1.55s]`}>Building seamless web experiences with MERN & modern tools.</p>
+
+                            <motion.div variants={parentVariant} initial="initial" animate={visible ? "animate" : ""} className={`flex gap-6 mt-6`}>
+                                {
+                                    [
+                                        { title: "Resume", value: "Download PDF" },
+                                        { title: "Location", value: "Fatehabad, Haryana" },
+                                        { title: "Expertise", value: "React.js, Node.js, MongoDB" },
+                                    ].map(({ title, value }) => (
+                                        <motion.div variants={childVariants}>
+                                            <Tilt
+                                                key={title}
+                                                glareEnable={true}
+                                                glareMaxOpacity={0.04}
+                                                scale={1.01}
+                                                tiltMaxAngleX={5}
+                                                tiltMaxAngleY={5}
+                                                transitionSpeed={1000}
+                                                className="hover:-translate-y-1 transition-all duration-[1.1s]"
+                                            >
+                                                {title === "Resume"
+                                                    ? <a
+                                                        href={resume}
+                                                        download
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="block"
+                                                    >
+                                                        <HeroCards title={title} value={value} />
+                                                    </a>
+                                                    : <HeroCards title={title} value={value} />}
+                                            </Tilt>
+                                        </motion.div>
+                                    ))
+                                }
+                            </motion.div>
                         </div>
                     </div>
 
@@ -98,22 +161,27 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                     <div className={`absolute top-4 left-4 md:left-8 md:top-8 z-30 ${translate} ${opacity} cursor-default transition-all duration-[1.6s]`}><Logo /></div>
 
                     {/* Github | Linkedin */}
-                    <div className={`flex items-center gap-6 absolute bottom-4 left-4 md:left-8 md:bottom-8 font-mono z-20 px-3 py-2 ${translate} ${opacity} transition-all duration-[1.6s] delay-75 backdrop-blur-2xl bg-gradient-to-br ${cardBg} shadow-inner rounded-3xl`}>
-                        <a className={`w-6 group aspect-square`} data-social="GitHub" id="githubLogo" href="https://github.com/pranjul-jangra?tab=overview" target="_blank" aria-label="Github profile">
-                            <svg className="group-hover:scale-105 transition-transform duration-150" fill={fillColor} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" viewBox="0 0 16 16">
+                    <div className={`flex items-center gap-6 absolute bottom-4 left-4 md:left-8 md:bottom-8 font-mono z-20 px-4 py-2 ${translate} ${opacity} transition-all duration-[1.6s] hover:-translate-y-0.5 hover:duration-300 delay-75 border backdrop-blur-sm bg-gradient-to-br ${cardStyle} rounded-3xl`}>
+                        <a className={`w-6.5 group aspect-square`} data-social="GitHub" id="githubLogo" href="https://github.com/pranjul-jangra?tab=overview" target="_blank" aria-label="Github profile">
+                            <svg className="group-hover:scale-105 transition-transform duration-300" fill={fillColor} xmlns="http://www.w3.org/2000/svg" xmlSpace="preserve" viewBox="0 0 16 16">
                                 <path d="M7.999 0C3.582 0 0 3.596 0 8.032a8.031 8.031 0 0 0 5.472 7.621c.4.074.546-.174.546-.387 0-.191-.007-.696-.011-1.366-2.225.485-2.695-1.077-2.695-1.077-.363-.928-.888-1.175-.888-1.175-.727-.498.054-.488.054-.488.803.057 1.225.828 1.225.828.714 1.227 1.873.873 2.329.667.072-.519.279-.873.508-1.074-1.776-.203-3.644-.892-3.644-3.969 0-.877.312-1.594.824-2.156-.083-.203-.357-1.02.078-2.125 0 0 .672-.216 2.2.823a7.633 7.633 0 0 1 2.003-.27 7.65 7.65 0 0 1 2.003.271c1.527-1.039 2.198-.823 2.198-.823.436 1.106.162 1.922.08 2.125.513.562.822 1.279.822 2.156 0 3.085-1.87 3.764-3.652 3.963.287.248.543.738.543 1.487 0 1.074-.01 1.94-.01 2.203 0 .215.144.465.55.386A8.032 8.032 0 0 0 16 8.032C16 3.596 12.418 0 7.999 0z"></path>
                             </svg>
                         </a>
 
-                        <a className={`w-7 group aspect-square flex justify-center items-center`} data-social="LinkedIn" id="linkedInLogo" href="https://www.linkedin.com/in/pranjul-jangra-107700332/" target="_blank" aria-label="LinkedIn profile">
-                            <svg className="w-[70%] group-hover:scale-105 transition-transform duration-150" fill={fillColor} viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
+                        <a className={`w-8 group aspect-square flex justify-center items-center`} data-social="LinkedIn" id="linkedInLogo" href="https://www.linkedin.com/in/pranjul-jangra-107700332/" target="_blank" aria-label="LinkedIn profile">
+                            <svg className="w-[70%] group-hover:scale-105 transition-transform duration-300" fill={fillColor} viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M478.234 600.75V1920H.036V600.75h478.198Zm720.853-2.438v77.737c69.807-45.056 150.308-71.249 272.38-71.249 397.577 0 448.521 308.666 448.521 577.562v737.602h-480.6v-700.836c0-117.867-42.173-140.215-120.15-140.215-74.134 0-120.151 23.55-120.151 140.215v700.836h-480.6V598.312h480.6ZM239.099 0c131.925 0 239.099 107.294 239.099 239.099s-107.174 239.099-239.1 239.099C107.295 478.198 0 370.904 0 239.098 0 107.295 107.294 0 239.099 0Z" fillRule="evenodd" />
                             </svg>
                         </a>
                     </div>
                 </section>
 
+                <LAbout />
+                <LEducation />
                 <GitHubStats />
+                <LSkills />
+                <LProjects />
+                <LContact />
                 <Footer />
             </main>
 

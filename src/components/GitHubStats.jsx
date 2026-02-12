@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useThemeStyles from "../hooks/useThemeStyles";
+import Tilt from 'react-parallax-tilt';
 import { languageColors } from "../utils/languageColors";
 
 const GITHUB_USERNAME = import.meta.env.VITE_GITHUB_NAME;
@@ -7,7 +8,7 @@ const GITHUB_API = "https://api.github.com/graphql";
 const TOKEN = import.meta.env.VITE_GITHUB_TOKEN;
 
 export default function GithubStatsCard() {
-    const { cardBg, grayText, cyanText, githubCardBorder, color } = useThemeStyles();
+    const { cardBg, grayText, cyanText, border, color, shadow } = useThemeStyles();
     const [contributions, setContributions] = useState(0);
     const [streaks, setStreaks] = useState({ current: 0, longest: 0 });
     const [repos, setRepos] = useState([]);
@@ -105,7 +106,6 @@ export default function GithubStatsCard() {
 
     // Calculate total stars, forks, and top languages
     const totalStars = repos.reduce((acc, r) => acc + r.stargazerCount, 0);
-    const totalForks = repos.reduce((acc, r) => acc + r.forkCount, 0);
     const topLanguagesData = repos
         .flatMap((r) => r.languages.nodes.map((l) => l.name))
         .reduce((acc, lang) => {
@@ -140,68 +140,100 @@ export default function GithubStatsCard() {
 
 
     return (
-        <section className={`px-4 sm:px-8 py-20 z-50`}>
-            <h2 className={`text-3xl font-bold mb-6 ${cyanText}`}>GitHub Activities</h2>
+        <section className={`px-4 sm:px-8 pt-20 pb-4 z-50`}>
+            <h2 className={`text-3xl font-playfair mb-10 ${cyanText}`}>GitHub Activities</h2>
 
-            {/* Summary Card */}
-            <div className={`max-w-2xl mx-auto mb-5 rounded-2xl p-8 border ${githubCardBorder} bg-gradient-to-br ${cardBg}`}>
-                <h2 className="font-semibold text-lg mb-2">{GITHUB_USERNAME}'s GitHub Stats</h2>
-                <div className="flex items-center justify-between">
-                    <div className={`space-y-1 text-sm ${grayText}`}>
-                        <p>Total Stars Earned: <span className={`${color} font-medium`}>{totalStars}</span></p>
-                        <p>Total Commits: <span className={`${color} font-medium`}>{contributions}</span></p>
-                        <p>Total PRs: <span className={`${color} font-medium`}>1</span></p>
-                        <p>Total Forks: <span className={`${color} font-medium`}>1</span></p>
-                        <p>Total Issues: <span className={`${color} font-medium`}>4</span></p>
-                        <p>Contributed to (last year): <span className={`${color} font-medium`}>4</span></p>
-                    </div>
-                    <div className="relative w-28 h-28 flex items-center justify-center rounded-full border-4 border-gray-600">
-                        <span className={`text-3xl ${color} font-bold`}>C</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Contribution & Streaks */}
-            <div className={`max-w-2xl mx-auto mb-5 grid md:grid-cols-3 gap-4 border ${githubCardBorder} bg-gradient-to-br ${cardBg} rounded-2xl p-8`}>
-                <div className="flex flex-col items-center justify-center gap-1">
-                    <p className="text-gray-400 text-sm">Total Contributions</p>
-                    <p className={`text-2xl font-semibold ${color}`}>{contributions}</p>
-                    <p className="text-xs text-gray-500">Jul 21, 2024 - Present</p>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-1">
-                    <div className="w-16 h-16 rounded-full border-4 border-orange-500 flex items-center justify-center text-orange-500 text-xl font-bold">
-                        {streaks.current}
-                    </div>
-                    <p className={`text-sm ${color}`}>Current Streak</p>
-                    <p className="text-xs text-gray-500">{today}</p>
-                </div>
-                <div className="flex flex-col items-center justify-center gap-1">
-                    <p className="text-gray-400 text-sm">Longest Streak</p>
-                    <p className={`text-2xl font-semibold ${color}`}>{streaks.longest}</p>
-                    <p className="text-xs text-gray-500">{longestStart} - {longestEnd}</p>
-                </div>
-            </div>
-
-            {/* Language Usage */}
-            <div className={`max-w-2xl mx-auto rounded-2xl p-8 border ${githubCardBorder} bg-gradient-to-br ${cardBg}`}>
-                <h2 className="font-semibold text-lg mb-2">Most Used Languages</h2>
-                <div className="space-y-2">
-                    {topLanguages.map(({ lang, percent }, i) => (
-                        <div key={i}>
-                            <div className={`flex justify-between text-sm ${color}`}>
-                                <span>{lang}</span>
-                                <span>{percent}%</span>
+            <section className="flex gap-8 max-w-5xl mx-auto mb-8">
+                {/* Summary Card */}
+                <Tilt
+                    glareEnable={true}
+                    glareMaxOpacity={0.04}
+                    scale={1}
+                    tiltMaxAngleX={2}
+                    tiltMaxAngleY={2}
+                    transitionSpeed={1000}
+                    className={`rounded-2xl overflow-hidden w-full min-w-sm h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+                >
+                    <div className={`w-full h-full p-8 bg-gradient-to-br ${cardBg}`}>
+                        <h2 className="font-semibold text-lg mb-2">{GITHUB_USERNAME}'s GitHub Stats</h2>
+                        <div className="flex items-center justify-between">
+                            <div className={`space-y-1 text-sm ${grayText} text-nowrap`}>
+                                <p>Total Stars Earned: <span className={`${color} font-medium`}>{totalStars}</span></p>
+                                <p>Total Commits: <span className={`${color} font-medium`}>{contributions}</span></p>
+                                <p>Total PRs: <span className={`${color} font-medium`}>1</span></p>
+                                <p>Total Forks: <span className={`${color} font-medium`}>1</span></p>
+                                <p>Total Issues: <span className={`${color} font-medium`}>4</span></p>
+                                <p>Contributed to (last year): <span className={`${color} font-medium`}>4</span></p>
                             </div>
-                            <div className="w-full bg-gray-700 h-2 rounded">
-                                <div
-                                    className={`h-2 rounded ${getBarColor(lang)}`}
-                                    style={{ width: `${percent}%` }}
-                                ></div>
+                            <div className="relative w-28 h-28 flex items-center justify-center rounded-full border-4 border-gray-600">
+                                <span className={`text-3xl ${color} font-bold`}>C</span>
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
+                    </div>
+                </Tilt>
+
+                {/* Contribution & Streaks */}
+                <Tilt
+                    glareEnable={true}
+                    glareMaxOpacity={0.04}
+                    scale={1}
+                    tiltMaxAngleX={2}
+                    tiltMaxAngleY={2}
+                    transitionSpeed={1000}
+                    className={`rounded-2xl overflow-hidden w-full min-w-xl h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+                >
+                    <div className={`w-full h-full grid md:grid-cols-3 gap-4 bg-gradient-to-br ${cardBg} p-8`}>
+                        <div className="flex flex-col items-center justify-center gap-1">
+                            <p className="text-gray-400 text-sm">Total Contributions</p>
+                            <p className={`text-2xl font-semibold ${color}`}>{contributions}</p>
+                            <p className="text-xs text-gray-500">Jul 21, 2024 - Present</p>
+                        </div>
+                        <div className="flex flex-col items-center justify-center gap-1">
+                            <div className="w-16 h-16 rounded-full border-4 border-orange-500 flex items-center justify-center text-orange-500 text-xl font-bold">
+                                {streaks.current}
+                            </div>
+                            <p className={`text-sm ${color}`}>Current Streak</p>
+                            <p className="text-xs text-gray-500">{today}</p>
+                        </div>
+                        <div className="flex flex-col items-center justify-center gap-1">
+                            <p className="text-gray-400 text-sm">Longest Streak</p>
+                            <p className={`text-2xl font-semibold ${color}`}>{streaks.longest}</p>
+                            <p className="text-xs text-gray-500">{longestStart} - {longestEnd}</p>
+                        </div>
+                    </div>
+                </Tilt>
+            </section>
+
+            {/* Language Usage */}
+            <Tilt
+                glareEnable={true}
+                glareMaxOpacity={0.04}
+                scale={1}
+                tiltMaxAngleX={1}
+                tiltMaxAngleY={1}
+                transitionSpeed={1000}
+                className={`rounded-2xl overflow-hidden w-full h-full max-w-5xl mx-auto border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+            >
+                <section className={`p-8 bg-gradient-to-br ${cardBg}`}>
+                    <h2 className="font-semibold text-lg mb-2">Most Used Languages</h2>
+                    <div className="space-y-2">
+                        {topLanguages.map(({ lang, percent }, i) => (
+                            <div key={i}>
+                                <div className={`flex justify-between text-sm ${color}`}>
+                                    <span>{lang}</span>
+                                    <span>{percent}%</span>
+                                </div>
+                                <div className="w-full bg-gray-700 h-2 rounded">
+                                    <div
+                                        className={`h-2 rounded ${getBarColor(lang)}`}
+                                        style={{ width: `${percent}%` }}
+                                    ></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+            </Tilt>
         </section>
     );
 }

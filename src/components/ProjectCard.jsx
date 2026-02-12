@@ -70,9 +70,9 @@ export default function ProjectCard({ project, variants }) {
                     <h3 className="text-xl font-semibold mb-2">{title}</h3>
                     <p className={`text-sm mb-4 ${grayText}`}>{description}</p>
 
-                    <div className={`flex flex-wrap gap-2 text-sm ${tagsStyle} font-mono mb-4`}>
+                    <div className={`flex flex-wrap gap-2 text-sm font-mono mb-4`}>
                         {stacks.map((s, i) => (
-                            <span key={i} className="px-2 py-1 rounded-md">#{s}</span>
+                            <span key={i} className={`px-2 py-1 rounded-md ${tagsStyle}`}>#{s}</span>
                         ))}
                     </div>
 

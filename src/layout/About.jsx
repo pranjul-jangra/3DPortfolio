@@ -1,5 +1,4 @@
 import { useState, useEffect, lazy } from 'react';
-import Navbar from '../components/Navbar';
 import { motion } from 'motion/react';
 import Tilt from 'react-parallax-tilt';
 import pranjul from '../assets/pranjul.jpg'
@@ -25,7 +24,6 @@ export default function About() {
 
     return (
         <main className={`w-full min-h-dvh flex flex-col items-center bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-            <Navbar />
             <ParticleBackground />
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 

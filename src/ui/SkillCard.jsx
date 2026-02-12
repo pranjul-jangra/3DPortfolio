@@ -51,7 +51,7 @@ export default function SkillCard({ isLightMode, skill, variants }) {
           className={`relative overflow-hidden rounded-3xl w-full h-full hover:saturate-150 p-5 flex flex-col gap-3 items-center bg-gradient-to-br ${cardBg}`}
         >
           <p className={`px-2 py-0.5 text-xs font-medium rounded-full border ${skillTagStyle}`}>{skill.proficiency}</p>
-          <img loading="lazy" className="w-12 h-12 p-1 my-0.5 flex items-center justify-center rounded-xl bg-black/10 dark:bg-white/10 backdrop-blur-md" style={{ boxShadow: `0 0 12px ${color}` }} src={skill.icon} alt="" />
+          <img loading="lazy" className="w-12 h-12 p-1 my-0.5 flex items-center justify-center rounded-xl bg-black/10 dark:bg-white/10 backdrop-blur-md" style={{ boxShadow: `0 0 12px ${color}` }} src={skill.icon} alt={skill.label} />
           <p className={`text-lg font-semibold ${color} text-center`}>{skill.label}</p>
           <p className={`text-sm ${grayText} leading-snug text-center`}>{skill.description}</p>
 

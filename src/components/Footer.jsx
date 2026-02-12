@@ -4,42 +4,46 @@ import Logo from "./Logo";
 import useThemeStyles from "../hooks/useThemeStyles";
 
 export default function Footer() {
-    const { color, grayText, footerBg, footerBorder, grayBg } = useThemeStyles();
+    const { color, grayText, footerBg, footerBorder, grayBg, border, cardBg } = useThemeStyles();
 
     return (
         <footer className={`relative bg-gradient-to-br ${footerBg} ${color} border-t ${footerBorder} overflow-hidden`}>
             {/* Subtle background pattern */}
             <div className="absolute inset-0 opacity-5">
-                <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white to-transparent rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-white to-transparent rounded-full blur-3xl transform translate-x-1/2 translate-y-1/2"></div>
+                <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-white to-transparent rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+                <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-white to-transparent rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
             </div>
 
             <div className="relative z-10 py-16 px-6 md:px-12 lg:px-24">
-                <div className="max-w-7xl mx-auto">
-                    {/* Main Content Grid */}
-                    <div className="grid gap-12 lg:gap-16 md:grid-cols-2 lg:grid-cols-4">
+                <div className="max-w-6xl mx-auto">
 
-                        {/* Brand Section - Takes 2 columns on large screens */}
-                        <div className="md:col-span-2 lg:col-span-2">
+                    {/* Main Content */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+                        {/* Brand Section */}
+                        <div>
                             <div className="mb-6">
                                 <Logo />
                             </div>
+
                             <p className="text-base leading-relaxed max-w-md mb-8 opacity-90">
                                 Building seamless digital experiences with modern web technologies.
                                 Passionate about clean design and powerful functionality.
                             </p>
 
-                            {/* Contact Info with better styling */}
                             <div className="space-y-4">
                                 <div className="flex items-center gap-3 group">
                                     <div className="p-2 rounded-lg bg-white/10 group-hover:bg-white/20 transition-colors">
                                         <Mail size={16} />
                                     </div>
-                                    <a href="mailto:pranjuljan68@gmail.com"
-                                        className="text-sm hover:opacity-75 transition-opacity">
+                                    <a
+                                        href="mailto:pranjuljan68@gmail.com"
+                                        className="text-sm hover:opacity-75 transition-opacity"
+                                    >
                                         pranjuljan68@gmail.com
                                     </a>
                                 </div>
+
                                 <div className="flex items-center gap-3">
                                     <div className="p-2 rounded-lg bg-white/10">
                                         <MapPin size={16} />
@@ -49,59 +53,36 @@ export default function Footer() {
                             </div>
                         </div>
 
-                        {/* Quick Links */}
-                        <div>
-                            <h4 className="text-lg font-semibold mb-6 relative">
-                                Quick Links
-                                <div className={`absolute -bottom-2 left-0 w-8 h-0.5 ${grayBg} rounded-full`}></div>
-                            </h4>
-                            <nav className="space-y-4">
-                                {[
-                                    { to: '/about-me', label: 'About me' },
-                                    { to: '/skills', label: 'Skills' },
-                                    { to: '/projects', label: 'Projects' },
-                                    { to: '/contact-me', label: 'Contact' }
-                                ].map((link) => (
-                                    <Link
-                                        key={link.to}
-                                        to={link.to}
-                                        className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 hover:translate-x-1 transition-all duration-200 group"
-                                    >
-                                        <span>{link.label}</span>
-                                        <ExternalLink size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    </Link>
-                                ))}
-                            </nav>
-                        </div>
-
-                        {/* Social Links */}
-                        <div>
-                            <h4 className="text-lg font-semibold mb-6 relative">
+                        {/* Connect Section */}
+                        <div className="md:justify-self-end md:text-right">
+                            <h4 className="text-lg font-semibold mb-6 relative inline-block">
                                 Connect
-                                <div className={`absolute -bottom-2 left-0 w-8 h-0.5 ${grayBg} rounded-full`}></div>
+                                <div className={`absolute -bottom-2 left-0 md:left-auto md:right-0 w-8 h-0.5 ${grayBg} rounded-full`}></div>
                             </h4>
-                            <div className="space-y-4">
-                                {/* Social Media Links */}
-                                <div className="flex gap-3">
+
+                            <div className="space-y-6">
+                                <div className="flex gap-3 md:justify-end">
                                     {[
-                                        { icon: Github, label: 'GitHub', href: 'https://github.com/pranjul-jangra?tab=overview' },
-                                        { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/pranjul-jangra-107700332/' },
+                                        { icon: Github, label: "GitHub", href: "https://github.com/pranjul-jangra?tab=overview" },
+                                        { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/pranjul-jangra-107700332/" },
                                     ].map((social) => (
                                         <a
                                             key={social.label}
                                             href={social.href}
-                                            className={`p-3 rounded-xl ${grayBg} hover:scale-110 transition-all duration-200 group`}
+                                            className={`p-3 rounded-xl border ${border} bg-gradient-to-br ${cardBg} transition-transform hover:scale-110`}
                                             aria-label={social.label}
                                         >
-                                            <social.icon size={18} className="group-hover:rotate-12 transition-transform" />
+                                            <social.icon size={18} />
                                         </a>
                                     ))}
                                 </div>
 
-                                {/* Call to action */}
-                                <div className="pt-4">
+                                <div>
                                     <p className="text-xs opacity-70 mb-3">Let's work together</p>
-                                    <Link to="/contact-me" className={`inline-flex items-center gap-2 px-4 py-2 ${grayBg} rounded-lg text-sm font-medium transition-all duration-200 hover:scale-105`}>
+                                    <Link
+                                        to="/contact-me"
+                                        className={`inline-flex items-center gap-2 px-4 py-2 border ${border} bg-gradient-to-br ${cardBg} rounded-lg text-sm font-medium transition-transform hover:scale-105`}
+                                    >
                                         Get in touch
                                         <ExternalLink size={14} />
                                     </Link>
@@ -110,12 +91,10 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Bottom Section with enhanced styling */}
-                    <div className={`relative mt-16 pt-8 border-t ${footerBorder} flex flex-col md:flex-row justify-center items-center gap-4`}>
-                        <div className={`text-sm ${grayText} flex items-center gap-2`}>
-                            <span>&copy; {new Date().getFullYear()} Pranjul Jangra.</span>
-                            <span className="hidden md:inline">•</span>
-                            <span>All rights reserved.</span>
+                    {/* Bottom Bar */}
+                    <div className={`mt-16 pt-8 border-t ${footerBorder} flex justify-center`}>
+                        <div className={`text-sm ${grayText} text-center`}>
+                            &copy; {new Date().getFullYear()} Pranjul Jangra. All rights reserved.
                         </div>
                     </div>
                 </div>

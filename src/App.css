@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
-/* *::selection {
-    background-color: #36a4a4;
-    color: black;
-} */
+@font-face {
+    font-family: "playfair";
+    src: url("./assets/Playfair.ttf");
+}
 
 * {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     scrollbar-width: none;
 }
+
+.font-playfair{
+    font-family: "playfair";
+    font-weight: 800;
+    line-height: 0;
+}
+
 
 ::-webkit-scrollbar {
     display: none;

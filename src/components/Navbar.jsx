@@ -1,73 +1,95 @@
-import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Home, Wrench, FolderKanban, Briefcase, Mail, UserCircle2Icon } from "lucide-react";
 import useThemeStyles from "../hooks/useThemeStyles";
-
 
 export default function Navbar() {
     const location = useLocation();
     const navRef = useRef();
+    const [isVisible, setIsVisible] = useState(true);
     const { navShadow, navgradient } = useThemeStyles();
 
-    // Translate navbar
+    // scroll handler with threshold
     useEffect(() => {
-        const scrollTrigger = () => {
-            if (window.scrollY > 30) {
-                if (navRef.current) navRef.current.style.transform = "translateY(-120%)";
-            } else if (window.scrollY > -20) {
-                if (navRef.current) navRef.current.style.transform = "translateY(0)";
-            }
-        }
-        window.addEventListener("scroll", scrollTrigger);
+        let lastScrollY = window.scrollY;
+        let ticking = false;
 
-        return () => window.removeEventListener("scroll", scrollTrigger);
+        const scrollTrigger = () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 30 && lastScrollY <= 30) {
+                setIsVisible(false);
+            } else if (currentScrollY <= 30 && lastScrollY > 30) {
+                setIsVisible(true);
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        };
+
+        const requestTick = () => {
+            if (!ticking) {
+                requestAnimationFrame(scrollTrigger);
+                ticking = true;
+            }
+        };
+
+        window.addEventListener("scroll", requestTick, { passive: true });
+        return () => window.removeEventListener("scroll", requestTick);
     }, []);
 
-    // Conditional styles
-    function activeTab(tab) {
-        return location.pathname.includes(tab) ? "bg-black/70" : "bg-transparent";
+    function isActive(tab) {
+        return location.pathname.includes(tab) || (tab === "/" && location.pathname === "/");
     }
 
-    function tabColor(tab) {
-        return location.pathname.includes(tab) ? "text-white brightness-125 contrast-125" : "text-white/50";
+    function tabClasses(tab) {
+        const active = isActive(tab);
+        return `${active ? "text-white brightness-125 contrast-125" : "text-white/50"} transition-colors duration-200`;
     }
-
 
     return (
-        <nav ref={navRef} className={`fixed top-5 left-1/2 -translate-1/2 z-50 px-5 pb-2 pt-3 rounded-b-[23px] text-white/85 bg-gradient-to-br ${navgradient} font-semibold ${navShadow} flex flex-nowrap items-center gap-10 max-sm:gap-6 transition-all duration-700 *:flex *:flex-col *:items-center *:text-shadow-2xs *:cursor-pointer`}>
-            {/* Navigate to landing page */}
-            <Link to={"/"} aria-label="Navigate to landing page">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5 text-white/50">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 12l9-8 9 8M4 10v10a1 1 0 001 1h5m10-11v10a1 1 0 01-1 1h-5" />
-                </svg>
-                <p className={`py-[1.5px] px-2.5 rounded-full}`}></p>
-            </Link>
+        <nav 
+            ref={navRef} 
+            className={`fixed top-2 left-1/2 -translate-x-1/2 z-50 px-5 p-2.5 rounded-[23px] text-white/85 bg-gradient-to-br ${navgradient} font-semibold ${navShadow} flex flex-nowrap items-center gap-5 max-sm:gap-6 *:flex *:flex-row *:items-center *:gap-2 *:text-shadow-2xs *:cursor-pointer transition-transform duration-700 ${isVisible ? 'translate-y-0' : '-translate-y-[150%]'}`}
+        >
+            <NavLink to={"/"} className="text-white/50" aria-label="Navigate to landing page">
+                <Home className="w-5 h-5" />
+            </NavLink>
 
-            {/* Other page navigation */}
-            <Link to={'/about-me'} className={`${tabColor("about-me")}`} aria-label="Navigate to about page">
-                <p>About</p>
-                <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("about-me")}`}></p>
-            </Link>
+            <NavLink to={'/about-me'} title="About me" className={tabClasses("about-me")} aria-label="Navigate to about page">
+                <UserCircle2Icon className="w-5 h-5 shrink-0" />
+                <span className={`whitespace-nowrap transition-all duration-200 ${isActive("about-me") ? "w-auto opacity-100 ml-0" : "w-0 opacity-0 ml-[-8px]"} overflow-hidden`}>
+                    About
+                </span>
+            </NavLink>
 
-            <Link to={'/skills'} className={`${tabColor("skills")}`} aria-label="Navigate to skills page">
-                <p>Skills</p>
-                <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("skills")}`}></p>
-            </Link>
+            <NavLink to={'/skills'} title="Skills" className={tabClasses("skills")} aria-label="Navigate to skills page">
+                <Wrench className="w-5 h-5 shrink-0" />
+                <span className={`whitespace-nowrap transition-all duration-200 ${isActive("skills") ? "w-auto opacity-100 ml-0" : "w-0 opacity-0 ml-[-8px]"} overflow-hidden`}>
+                    Skills
+                </span>
+            </NavLink>
 
-            <Link to={'/projects'} className={`${tabColor("projects")}`} aria-label="Navigate to projects page">
-                <p>Projects</p>
-                <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("projects")}`}></p>
-            </Link>
+            <NavLink to={'/projects'} title="Projects" className={tabClasses("projects")} aria-label="Navigate to projects page">
+                <FolderKanban className="w-5 h-5 shrink-0" />
+                <span className={`whitespace-nowrap transition-all duration-200 ${isActive("projects") ? "w-auto opacity-100 ml-0" : "w-0 opacity-0 ml-[-8px]"} overflow-hidden`}>
+                    Projects
+                </span>
+            </NavLink>
 
-            {/* <Link to={`/experience`} className={`${tabColor("experience")}`} aria-label="Navigate to experience page">
-                <p>Experience</p>
-                <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("experience")}`}></p>
-            </Link> */}
+            <NavLink to={`/experience`} title="Experience" className={tabClasses("experience")} aria-label="Navigate to experience page">
+                <Briefcase className="w-5 h-5 shrink-0" />
+                <span className={`whitespace-nowrap transition-all duration-200 ${isActive("experience") ? "w-auto opacity-100 ml-0" : "w-0 opacity-0 ml-[-8px]"} overflow-hidden`}>
+                    Experience
+                </span>  
+            </NavLink>
 
-            <Link to={'/contact-me'} className={`${tabColor("contact-me")}`} aria-label="Navigate to contact page">
-                <p>Contact</p>
-                <p className={`py-[1.5px] px-2.5 rounded-full ${activeTab("contact-me")}`}></p>
-            </Link>
+            <NavLink to={'/contact-me'} title="Contact" className={tabClasses("contact-me")} aria-label="Navigate to contact page">
+                <Mail className="w-5 h-5 shrink-0" />
+                <span className={`whitespace-nowrap transition-all duration-200 ${isActive("contact-me") ? "w-auto opacity-100 ml-0" : "w-0 opacity-0 ml-[-8px]"} overflow-hidden`}>
+                    Contact
+                </span>
+            </NavLink>
         </nav>
     )
 }

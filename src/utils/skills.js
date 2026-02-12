@@ -283,4 +283,106 @@ export const skills = [
 ]
 
 
+// utils/skills.js
+export const short_skills = [
+  {
+    category: "Frontend",
+    items: [
+      {
+        label: "React.js",
+        icon: "/react.svg",
+        proof: "Built SPAs with routing, protected routes, forms, and theme systems",
+        usedIn: ["Social Media App", "Expensely"]
+      },
+      {
+        label: "TypeScript",
+        icon: "/TypeScript.svg",
+        proof: "Typed large components, API contracts, and shared UI utilities",
+        usedIn: ["Portfolio", "Social Media App"]
+      },
+      {
+        label: "Tailwind CSS",
+        icon: "/Tailwind.svg",
+        proof: "Converted multi-page apps from CSS to utility-first responsive layouts",
+        usedIn: ["Portfolio", "Social Media App"]
+      },
+      {
+        label: "Motion",
+        icon: "/motion.svg",
+        proof: "Built scroll-triggered and hover-based UI animations",
+        usedIn: ["Portfolio"]
+      },
+      {
+        label: "Redux",
+        icon: "/Redux.svg",
+        proof: "Managed global auth and user state with async actions",
+        usedIn: ["Expensely"]
+      }
+    ]
+  },
+  {
+    category: "Backend",
+    items: [
+      {
+        label: "Node.js",
+        icon: "/Node.js.svg",
+        proof: "Developed REST APIs with JWT auth, pagination, and role-based access",
+        usedIn: ["Expensely", "Social Media App"]
+      },
+      {
+        label: "Express.js",
+        icon: "/Express.svg",
+        proof: "Structured middleware, controllers, and error handling layers",
+        usedIn: ["Expensely", "Social Media App"]
+      },
+      {
+        label: "MongoDB",
+        icon: "/MongoDB.svg",
+        proof: "Designed schemas for users, posts, transactions, and chat systems",
+        usedIn: ["Expensely", "Social Media App"]
+      },
+      {
+        label: "Firebase",
+        icon: "/Firebase.svg",
+        proof: "Used for auth, storage, and real-time features",
+        usedIn: ["Media Platform"]
+      }
+    ]
+  },
+  {
+    category: "Tools",
+    items: [
+      {
+        label: "Git",
+        icon: "/Git.svg",
+        proof: "Managed version control across multi-feature branches",
+        usedIn: ["All Projects"]
+      },
+      {
+        label: "GitHub",
+        icon: "/github.svg",
+        proof: "Hosted repos with issues, README docs, and CI workflows",
+        usedIn: ["All Projects"]
+      },
+      {
+        label: "JWT",
+        icon: "/jwt.svg",
+        proof: "Implemented secure auth and refresh token flows",
+        usedIn: ["Expensely", "Social Media App"]
+      },
+      {
+        label: "Axios",
+        icon: "/axios.svg",
+        proof: "Built API layers with interceptors and centralized error handling",
+        usedIn: ["All Projects"]
+      },
+      {
+        label: "Postman",
+        icon: "/Postman.svg",
+        proof: "Tested and documented REST APIs",
+        usedIn: ["All Projects"]
+      }
+    ]
+  }
+];
 

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import Navbar from '../components/Navbar';
 import ScrollIndicator from '../ui/ScrollIndicator';
 import UseUpdatePageHeight from '../hooks/UseUpdatePageHeight';
 import Email from '../components/Email';
@@ -24,7 +23,6 @@ export default function Contact() {
 
     return (
         <main className={`w-full min-h-dvh flex flex-col items-center bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-            <Navbar />
             <ParticleBackground />
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 

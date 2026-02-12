@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
-import { BrainCircuit, Briefcase, FolderOpen, Mail, Moon, NotebookText, Sun, UserCircle2Icon } from "lucide-react";
+import { BrainCircuit, Briefcase, FolderKanban, FolderOpen, Mail, Moon, Sun, UserCircle2Icon, Wrench } from "lucide-react";
 import useThemeStyles from "../hooks/useThemeStyles";
 
 
@@ -23,14 +23,13 @@ export default function RootNavigations({ setShowNav, isLightMode, themeSetter }
                 initial={{ y: -80, opacity: 0 }}
                 animate={{ y: 0, opacity: 1, transition: { duration: 0.6, ease: "easeOut" } }}
                 exit={{ y: -90, opacity: 0 }}
-                className={`grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 *:w-40 *:h-20 *:rounded-xl *:flex *:items-center *:justify-start *:gap-2 *:backdrop-blur-3xl ${isLightMode ? "*:bg-white/20" : "*:bg-black/20"} *:p-4 *:shadow-lg *:hover:shadow-md *:hover:-translate-y-1.5 *:transition-all *:duration-200`}
+                className={`grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-8 *:w-40 *:h-20 *:rounded-xl *:flex *:items-center *:justify-start *:gap-2 *:backdrop-blur-3xl ${isLightMode ? "*:bg-white/20" : "*:bg-black/20"} *:p-4 *:shadow-lg *:hover:shadow-md *:hover:-translate-y-1 *:transition-all *:duration-300`}
             >
                 <Link className={`${shadow}`} to={'/about-me'}><UserCircle2Icon /> About</Link>
-                <Link className={`${shadow}`} to={'/skills'}><BrainCircuit /> Skills</Link>
-                <Link className={`${shadow}`} to={'/projects'}><FolderOpen /> Projects</Link>
-                {/* <Link className={`${shadow}`} to={'/experience'}><Briefcase /> Experience</Link> */}
+                <Link className={`${shadow}`} to={'/skills'}><Wrench /> Skills</Link>
+                <Link className={`${shadow}`} to={'/projects'}><FolderKanban /> Projects</Link>
+                <Link className={`${shadow}`} to={'/experience'}><Briefcase /> Experience</Link>
                 <Link className={`${shadow}`} to={'/contact-me'}><Mail /> Contact</Link>
-                {/* <Link className={`${shadow}`} to={'/blog'}><NotebookText /> Blog</Link> */}
             </motion.article>
 
 

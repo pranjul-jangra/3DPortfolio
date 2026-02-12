@@ -125,7 +125,7 @@ export default function Resume() {
         {!loading && !error && (
           <div className="bg-white rounded-lg border border-gray-600 overflow-hidden w-full max-w-4xl">
             {renderResume && (
-              <iframe ref={iframeRef} tabIndex="-1" autoFocus={false} src={resume} width="100%" height="600" title="Resume PDF" className="border-0" />
+              <iframe ref={iframeRef} tabIndex="-1" autoFocus={false} allowFullScreen={false} src={resume} width="100%" height="600" title="Resume PDF" className="border-0" />
             )}
           </div>
         )}

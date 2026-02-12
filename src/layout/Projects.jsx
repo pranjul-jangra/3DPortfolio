@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import { useInView, motion } from 'motion/react';
-import Navbar from '../components/Navbar';
 import ScrollIndicator from '../ui/ScrollIndicator';
 import UseUpdatePageHeight from '../hooks/UseUpdatePageHeight';
 import ProjectCard from '../components/ProjectCard';
@@ -55,7 +54,6 @@ export default function Projects() {
 
     return (
         <main className={`w-full min-h-dvh flex flex-col items-center bg-gradient-to-br relative overflow-hidden ${color} ${bgColor} transition-colors duration-150`}>
-            <Navbar />
             <ParticleBackground />
             <ScrollIndicator totalHeight={pageInfo.totalHeight} viewportHeight={pageInfo.visibleHeight} />
 

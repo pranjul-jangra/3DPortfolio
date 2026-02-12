@@ -22,45 +22,82 @@ import yovo5 from '../assets/yovo5.png';
 
 
 export const projects = [
-    {
-        title: "Aeris - Your weather companion",
-        description: "Designed for clarity and precision, Aeris helps you stay ahead of the weather with smart location services and accurate multi-source forecasts.",
-        liveLink: "https://aeris-lemon.vercel.app",
-        codeLink: "https://github.com/pranjul-jangra/Aeris",
-        images: [aeris1, aeris2, aeris3, aeris4],
-        stacks: ["React.js", "Redux", "React router", "Tailwind CSS", "Axios", "Recharts", "Leaflet"],
-        type: "Frontend"
-    },
-    {
-        title: "Sonexa — Your Sonic Universe",
-        description: "Sonexa delivers music with impact — featuring smart playlists, category filters, user-based grouping, and a beautiful UI built for all devices.",
-        liveLink: "https://sonexa-chi.vercel.app/home",
-        codeLink: "https://github.com/pranjul-jangra/Sonexa",
-        images: [sonexa1, sonexa2, sonexa3, sonexa4],
-        stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Headless UI", "Motion", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer"],
-        type: "MERN"
-    },
-    {
-        title: "Expensely — Smarter Money Management",
-        description: "Track, analyze, and manage your finances effortlessly. Expensely brings filtering, real-time insights, and an intuitive UI to help you take control of your spending.",
-        liveLink: "https://expensely-blue.vercel.app",
-        codeLink: "https://github.com/pranjul-jangra/Expensely",
-        images: [expensely1, expensely2, expensely3, expensely4],
-        stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Chart.js", "Motion", "Lenis", "Express.js", "Mongoose ODM", "Cloudinary", "JWT", "Nodemailer", "Zod"],
-        type: "MERN"
-    },
-    {
-        title: "Yovo — Social Media Website",
-        description: "A full-stack social media platform where users can connect, share content, and communicate in real-time. Yovo includes media posting, likes, comments, shares, follows, messaging, profile management, and an explore page — all with a modern responsive UI.",
-        liveLink: "https://yovo.vercel.app/",
-        codeLink: "https://github.com/pranjul-jangra/yovo",
-        images: [yovo1, yovo2, yovo3, yovo4, yovo5],
-        stacks: [
-            "React.js", "Zustand", "Tailwind CSS", "Axios", "Socket.io",
-            "Motion", "Lenis", "Sonner", "React Router", "Node.js", "Express.js", "Mongoose ODM",
-            "Cloudinary", "Multer", "JWT", "Bcrypt", "Nodemailer",
-            "UA-Parser", "Express-Rate-Limit"
-        ],
-        type: "MERN"
-    },
+  {
+    title: "Aeris - Your weather companion",
+    description: "Designed for clarity and precision, Aeris helps you stay ahead of the weather with smart location services and accurate multi-source forecasts.",
+    liveLink: "https://aeris-lemon.vercel.app",
+    codeLink: "https://github.com/pranjul-jangra/Aeris",
+    images: [aeris1, aeris2, aeris3, aeris4],
+    stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Recharts", "Leaflet"],
+    type: "Frontend"
+  },
+  {
+    title: "Sonexa — Your Sonic Universe",
+    description: "Sonexa delivers music with impact — featuring smart playlists, category filters, user-based grouping, and a beautiful UI built for all devices.",
+    liveLink: "https://sonexa-chi.vercel.app/home",
+    codeLink: "https://github.com/pranjul-jangra/Sonexa",
+    images: [sonexa1, sonexa2, sonexa3, sonexa4],
+    stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Headless UI", "Node.js", "MongoDB", "Cloudinary", "JWT"],
+    type: "MERN"
+  },
+  {
+    title: "Expensely — Smarter Money Management",
+    description: "Track, analyze, and manage your finances effortlessly. Expensely brings filtering, real-time insights, and an intuitive UI to help you take control of your spending.",
+    liveLink: "https://expensely-blue.vercel.app",
+    codeLink: "https://github.com/pranjul-jangra/Expensely",
+    images: [expensely1, expensely2, expensely3, expensely4],
+    stacks: ["React.js", "Redux", "Tailwind CSS", "Axios", "Chart.js", "Node.js", "MongoDB", "Cloudinary", "JWT", "Zod"],
+    type: "MERN"
+  },
+  {
+    title: "Yovo — Social Media Website",
+    description: "A full-stack social media platform where users can connect, share content, and communicate in real-time. Yovo includes media posting, likes, comments, shares, follows, messaging, profile management, and an explore page — all with a modern responsive UI.",
+    liveLink: "https://yovo.vercel.app/",
+    codeLink: "https://github.com/pranjul-jangra/yovo",
+    images: [yovo1, yovo2, yovo3, yovo4, yovo5],
+    stacks: [ "React.js", "Zustand", "Tailwind CSS", "Axios", "Socket.io", "Node.js", "MongoDB", "Cloudinary", "JWT", "Express-Rate-Limit"],
+    type: "MERN"
+  },
 ]
+
+
+
+
+export const featuredProjects = [
+  {
+    id: "expensely",
+    title: "Expensely",
+    image: expensely1,
+    description: "Personal finance app with advanced filtering, insights, and clean data visualizations.",
+    tech: ["React.js", "Redux", "Tailwind", "Chart.js", "Node.js", "MongoDB", "Cloudinary", "JWT", "Zod"],
+    liveUrl: "https://expensely-blue.vercel.app",
+    repoUrl: "https://github.com/pranjul-jangra/Expensely"
+  },
+  {
+    id: "sonexa",
+    title: "Sonexa",
+    image: sonexa1,
+    description: "Music streaming platform with smart playlists, category filters, and user-based grouping.",
+    tech: ["React.js", "Redux", "Tailwind", "Headless UI", "Node.js", "MongoDB", "Cloudinary", "JWT"],
+    liveUrl: "https://sonexa-chi.vercel.app/home",
+    repoUrl: "https://github.com/pranjul-jangra/Sonexa"
+  },
+  {
+    id: "yovo",
+    title: "Yovo",
+    image: yovo1,
+    description: "Full-stack social media platform with posts, messaging, follows, and real-time updates.",
+    tech: [ "React.js", "Zustand", "Tailwind", "Node.js", "MongoDB", "Cloudinary", "JWT", "Socket.io", "Express-Rate-Limit"],
+    liveUrl: "https://yovo.vercel.app/",
+    repoUrl: "https://github.com/pranjul-jangra/yovo"
+  },
+  {
+    id: "aeris",
+    title: "Aeris",
+    description: "Weather app with location-based forecasts and interactive map visualizations.",
+    tech: ["React.js", "Redux", "Tailwind", "Recharts", "Leaflet"],
+    image: aeris1,
+    liveUrl: "https://aeris-lemon.vercel.app",
+    repoUrl: "https://github.com/pranjul-jangra/Aeris"
+  }
+];

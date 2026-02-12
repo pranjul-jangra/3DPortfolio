@@ -8,17 +8,17 @@ import useThemeStyles from '../hooks/useThemeStyles';
 export default function Email() {
     const form = useRef();
     const [isSending, setIsSending] = useState(false);
-    const { inputsBorderColor, shadow } = useThemeStyles();
+    const { inputsBorderColor, grayText } = useThemeStyles();
 
     const sendEmail = async (e) => {
         e.preventDefault();
         const formData = new FormData(form.current);
-        
+
         const name = formData.get("name")?.trim();
         const email = formData.get("email")?.trim();
         const message = formData.get("message")?.trim();
         if (!name || !email || !message) return toast.error("Please fill in all the fields.");
-        
+
         try {
             setIsSending(true);
 
@@ -40,19 +40,67 @@ export default function Email() {
     };
 
     return (
-        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 w-full md:max-w-md">
-            <input type="text" name="name" placeholder="Your Name" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
-            <input type="email" name="email" placeholder="Your Email" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
-            <textarea name="message" rows="5" placeholder="Your Message" required className={`w-full p-2 rounded-md border outline-0 shadow-lg ${shadow} focus-visible:border-teal-700/80 ${inputsBorderColor} transition-shadow duration-200`} />
+        <form ref={form} noValidate onSubmit={sendEmail} className="space-y-4 w-full">
+            <div>
+                <label htmlFor="name" className='text-sm'>Name</label>
+                <input id='name' type="text" name="name" required className={`w-full p-2 ${grayText} border-b outline-0 focus-visible:border-teal-700/80 ${inputsBorderColor} transition-colors duration-150`} />
+            </div>
+
+            <div>
+                <label htmlFor="email" className='text-sm'>Email</label>
+                <input id='email' type="email" name="email" required className={`w-full p-2 ${grayText} border-b outline-0 focus-visible:border-teal-700/80 ${inputsBorderColor} transition-colors duration-150`} />
+            </div>
+
+            <div>
+                <label htmlFor="message" className='text-sm'>Message</label>
+                <textarea id='message' name="message" rows="5" required className={`w-full p-2 ${grayText} border-b outline-0 focus-visible:border-teal-700/80 ${inputsBorderColor} transition-colors duration-150`} />
+            </div>
+
             <input type="hidden" name="time" value={new Date().toLocaleString()} />
 
             <button disabled={isSending} type="submit" className="bg-teal-700/80 hover:bg-gradient-to-r hover:from-teal-700/90 hover:to-teal-800 text-white border-0 outline-0 focus:outline focus:outline-teal-700 outline-offset-2 font-semibold w-full rounded-md cursor-pointer transition-colors duration-300">
                 {isSending ? "Sending..." : <div className='w-full py-2.5 flex gap-1 items-center justify-center group'><Send className="w-5 h-5 group-hover:-translate-x-0.5 group-hover:rotate-45 transition-all duration-300" /><p className='group-hover:translate-x-1 transition-all duration-300'>Send Message</p></div>}
             </button>
 
-            <div className="flex justify-center mt-7">
+            <div className="flex justify-center mt-4">
                 <div className="w-16 h-1 bg-gradient-to-r from-transparent via-teal-500 to-transparent rounded-full"></div>
             </div>
         </form>
     )
 }
+
+{/* <form className="space-y-6">
+    <div>
+        <label className="block text-sm mb-2">Name</label>
+        <input
+            type="text"
+            required
+            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none`}
+        />
+    </div>
+
+    <div>
+        <label className="block text-sm mb-2">Email</label>
+        <input
+            type="email"
+            required
+            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none`}
+        />
+    </div>
+
+    <div>
+        <label className="block text-sm mb-2">Message</label>
+        <textarea
+            rows="4"
+            required
+            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none resize-none`}
+        />
+    </div>
+
+    <button
+        type="submit"
+        className={`${buttonPrimary} px-6 py-3 text-sm font-medium`}
+    >
+        Send message
+    </button>
+</form> */}
