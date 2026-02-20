@@ -143,18 +143,18 @@ export default function GithubStatsCard() {
         <section className={`px-4 sm:px-8 pt-20 pb-4 z-50`}>
             <h2 className={`text-3xl font-playfair mb-10 ${cyanText}`}>GitHub Activities</h2>
 
-            <section className="flex gap-8 max-w-5xl mx-auto mb-8">
+            <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Summary Card */}
                 <Tilt
-                    glareEnable={true}
+                    glareEnable
                     glareMaxOpacity={0.04}
                     scale={1}
                     tiltMaxAngleX={2}
                     tiltMaxAngleY={2}
                     transitionSpeed={1000}
-                    className={`rounded-2xl overflow-hidden w-full min-w-sm h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+                    className={`rounded-2xl overflow-hidden border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
                 >
-                    <div className={`w-full h-full p-8 bg-gradient-to-br ${cardBg}`}>
+                    <div className={`p-8 bg-gradient-to-br ${cardBg}`}>
                         <h2 className="font-semibold text-lg mb-2">{GITHUB_USERNAME}'s GitHub Stats</h2>
                         <div className="flex items-center justify-between">
                             <div className={`space-y-1 text-sm ${grayText} text-nowrap`}>
@@ -174,27 +174,29 @@ export default function GithubStatsCard() {
 
                 {/* Contribution & Streaks */}
                 <Tilt
-                    glareEnable={true}
+                    glareEnable
                     glareMaxOpacity={0.04}
                     scale={1}
                     tiltMaxAngleX={2}
                     tiltMaxAngleY={2}
                     transitionSpeed={1000}
-                    className={`rounded-2xl overflow-hidden w-full min-w-xl h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+                    className={`rounded-2xl overflow-hidden flex align-middle justify-center border ${border} shadow-lg ${shadow} bg-gradient-to-br ${cardBg} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
                 >
-                    <div className={`w-full h-full grid md:grid-cols-3 gap-4 bg-gradient-to-br ${cardBg} p-8`}>
+                    <div className={`grid md:grid-cols-3 max-md:grid-cols-2 gap-4 max-md:gap-10 p-8`}>
                         <div className="flex flex-col items-center justify-center gap-1">
                             <p className="text-gray-400 text-sm">Total Contributions</p>
                             <p className={`text-2xl font-semibold ${color}`}>{contributions}</p>
                             <p className="text-xs text-gray-500">Jul 21, 2024 - Present</p>
                         </div>
-                        <div className="flex flex-col items-center justify-center gap-1">
-                            <div className="w-16 h-16 rounded-full border-4 border-orange-500 flex items-center justify-center text-orange-500 text-xl font-bold">
+
+                        <div className="flex flex-col items-center justify-center gap-1 max-md:row-span-2">
+                            <div className="w-16 h-16 max-md:w-full max-md:h-full rounded-full border-4 max-md:border-[6px] border-orange-500 flex items-center justify-center text-orange-500 text-xl max-md:text-3xl font-bold">
                                 {streaks.current}
                             </div>
                             <p className={`text-sm ${color}`}>Current Streak</p>
                             <p className="text-xs text-gray-500">{today}</p>
                         </div>
+
                         <div className="flex flex-col items-center justify-center gap-1">
                             <p className="text-gray-400 text-sm">Longest Streak</p>
                             <p className={`text-2xl font-semibold ${color}`}>{streaks.longest}</p>
@@ -202,38 +204,38 @@ export default function GithubStatsCard() {
                         </div>
                     </div>
                 </Tilt>
-            </section>
 
-            {/* Language Usage */}
-            <Tilt
-                glareEnable={true}
-                glareMaxOpacity={0.04}
-                scale={1}
-                tiltMaxAngleX={1}
-                tiltMaxAngleY={1}
-                transitionSpeed={1000}
-                className={`rounded-2xl overflow-hidden w-full h-full max-w-5xl mx-auto border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
-            >
-                <section className={`p-8 bg-gradient-to-br ${cardBg}`}>
-                    <h2 className="font-semibold text-lg mb-2">Most Used Languages</h2>
-                    <div className="space-y-2">
-                        {topLanguages.map(({ lang, percent }, i) => (
-                            <div key={i}>
-                                <div className={`flex justify-between text-sm ${color}`}>
-                                    <span>{lang}</span>
-                                    <span>{percent}%</span>
+                {/* Language Usage */}
+                <Tilt
+                    glareEnable
+                    glareMaxOpacity={0.04}
+                    scale={1}
+                    tiltMaxAngleX={1}
+                    tiltMaxAngleY={1}
+                    transitionSpeed={1000}
+                    className={`lg:col-span-2 rounded-2xl overflow-hidden border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
+                >
+                    <section className={`p-8 bg-gradient-to-br ${cardBg}`}>
+                        <h2 className="font-semibold text-lg mb-2">Most Used Languages</h2>
+                        <div className="space-y-2">
+                            {topLanguages.map(({ lang, percent }, i) => (
+                                <div key={i}>
+                                    <div className={`flex justify-between text-sm ${color}`}>
+                                        <span>{lang}</span>
+                                        <span>{percent}%</span>
+                                    </div>
+                                    <div className="w-full bg-gray-700 h-2 rounded">
+                                        <div
+                                            className={`h-2 rounded ${getBarColor(lang)}`}
+                                            style={{ width: `${percent}%` }}
+                                        ></div>
+                                    </div>
                                 </div>
-                                <div className="w-full bg-gray-700 h-2 rounded">
-                                    <div
-                                        className={`h-2 rounded ${getBarColor(lang)}`}
-                                        style={{ width: `${percent}%` }}
-                                    ></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-            </Tilt>
+                            ))}
+                        </div>
+                    </section>
+                </Tilt>
+            </div>
         </section>
     );
 }

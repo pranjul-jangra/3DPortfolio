@@ -11,6 +11,7 @@ export default function Email() {
     const { inputsBorderColor, grayText } = useThemeStyles();
 
     const sendEmail = async (e) => {
+        setTimeout(() => {}, 2000);
         e.preventDefault();
         const formData = new FormData(form.current);
 
@@ -59,7 +60,7 @@ export default function Email() {
             <input type="hidden" name="time" value={new Date().toLocaleString()} />
 
             <button disabled={isSending} type="submit" className="bg-teal-700/80 hover:bg-gradient-to-r hover:from-teal-700/90 hover:to-teal-800 text-white border-0 outline-0 focus:outline focus:outline-teal-700 outline-offset-2 font-semibold w-full rounded-md cursor-pointer transition-colors duration-300">
-                {isSending ? "Sending..." : <div className='w-full py-2.5 flex gap-1 items-center justify-center group'><Send className="w-5 h-5 group-hover:-translate-x-0.5 group-hover:rotate-45 transition-all duration-300" /><p className='group-hover:translate-x-1 transition-all duration-300'>Send Message</p></div>}
+                {isSending ? <div className='py-2.5'>Sending...</div> : <div className='w-full py-2.5 flex gap-1 items-center justify-center group'><Send className="w-5 h-5 group-hover:-translate-x-0.5 group-hover:rotate-45 transition-all duration-300" /><p className='group-hover:translate-x-1 transition-all duration-300'>Send Message</p></div>}
             </button>
 
             <div className="flex justify-center mt-4">
@@ -68,39 +69,3 @@ export default function Email() {
         </form>
     )
 }
-
-{/* <form className="space-y-6">
-    <div>
-        <label className="block text-sm mb-2">Name</label>
-        <input
-            type="text"
-            required
-            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none`}
-        />
-    </div>
-
-    <div>
-        <label className="block text-sm mb-2">Email</label>
-        <input
-            type="email"
-            required
-            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none`}
-        />
-    </div>
-
-    <div>
-        <label className="block text-sm mb-2">Message</label>
-        <textarea
-            rows="4"
-            required
-            className={`w-full bg-transparent border-b ${border} py-2 focus:outline-none resize-none`}
-        />
-    </div>
-
-    <button
-        type="submit"
-        className={`${buttonPrimary} px-6 py-3 text-sm font-medium`}
-    >
-        Send message
-    </button>
-</form> */}
