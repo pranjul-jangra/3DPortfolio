@@ -1,5 +1,4 @@
 import { useEffect, useState, lazy } from "react"
-import { AnimatePresence } from "framer-motion"
 import { motion } from 'motion/react';
 import "./layouts.scss"
 import Logo from "../components/Logo";
@@ -7,17 +6,21 @@ import Footer from "../components/Footer";
 import DisplacementSphere from './sphere/DisplacementSphere';
 import useThemeStyles from '../hooks/useThemeStyles';
 import ParticleBackground from "../ui/ParticleBackground";
-import RootNavigations from "../components/RootNavigations";
+// import { AnimatePresence } from "framer-motion"
+// import RootNavigations from "../components/RootNavigations";
 import Tilt from 'react-parallax-tilt';
-
-import GitHubStats from "../components/GitHubStats";
-const LSkills = lazy(() => import("../components/landingPageComponents/LSkills"));
-import { LProjects } from "../components/landingPageComponents/LProjects";
-import LAbout from "../components/landingPageComponents/LAbout";
-import LEducation from "../components/landingPageComponents/LEducation";
-import LContact from "../components/landingPageComponents/LContact";
 import resume from "../assets/Pranjul-Resume.pdf";
 import HeroCards from "../ui/HeroCards";
+import { Moon, Sun } from "lucide-react";
+
+import LAbout from "../components/landingPageComponents/LAbout";
+import { LProjects } from "../components/landingPageComponents/LProjects";
+const LSkills = lazy(() => import("../components/landingPageComponents/LSkills"));
+const GitHubStats = lazy(() => import("../components/GitHubStats"));
+const LEducation = lazy(() => import("../components/landingPageComponents/LEducation"));
+const LContact = lazy(() => import("../components/landingPageComponents/LContact"));
+
+
 
 
 export default function LandingPage({ isLightMode, themeSetter }) {
@@ -120,7 +123,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                                                 tiltMaxAngleX={5}
                                                 tiltMaxAngleY={5}
                                                 transitionSpeed={1000}
-                                                className="hover:-translate-y-1 transition-all duration-[1.1s]"
+                                                className="hover:-translate-y-1 transition-transform duration-[1.1s]"
                                             >
                                                 {title === "Resume"
                                                     ? <a
@@ -128,7 +131,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                                                         download
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="block"
+                                                        className="block transition-colors duration-75"
                                                     >
                                                         <HeroCards title={title} value={value} />
                                                     </a>
@@ -147,7 +150,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                     </div>
 
                     {/* Navigation */}
-                    <nav className="absolute top-4 right-4 md:right-8 md:top-8 z-30 text-black">
+                    {/* <nav className="absolute top-4 right-4 md:right-8 md:top-8 z-30 text-black">
                         <button type="button" aria-label={showNav ? "Close navbar" : "Open navbar"} onClick={() => setShowNav(prev => !prev)} className={`w-12 h-12 p-2 flex items-center justify-center cursor-pointer ${translate} ${opacity} transition-all duration-500 `}>
                             <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                 <line className={`origin-center transition-transform duration-700 ${showNav ? "translate-y-[4.5px] rotate-45" : ""}`} x1="3" y1="6" x2="21" y2="6" />
@@ -155,7 +158,24 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                                 <line className={`origin-center transition-transform duration-700 ${showNav ? "-translate-y-[4px] -rotate-45" : ""}`} x1="3" y1="18" x2="21" y2="18" />
                             </svg>
                         </button>
-                    </nav>
+                    </nav> */}
+                    <div className={`absolute top-4 right-4 md:right-8 md:top-8 z-30 text-black`}>
+                        {
+                            isLightMode
+                                ?
+                                <div
+                                    key={"dark"}
+                                    className={`bottom-9 right-9 w-10 aspect-square cursor-pointer ${translate} ${opacity} transition-all duration-[1.6s]`} onClick={e => { e.stopPropagation(); themeSetter(); }}>
+                                    <Moon className="w-full h-full" />
+                                </div>
+                                :
+                                <div
+                                    key={'light'}
+                                    className={`bottom-9 right-9 w-10 aspect-square cursor-pointer ${translate} ${opacity} transition-all duration-[1.6s]`} onClick={e => { e.stopPropagation(); themeSetter(); }}>
+                                    <Sun className="w-full h-full" />
+                                </div>
+                        }
+                    </div>
 
                     {/* Logo */}
                     <div className={`absolute top-4 left-4 md:left-8 md:top-8 z-30 ${translate} ${opacity} cursor-default transition-all duration-[1.6s]`}><Logo /></div>
@@ -186,9 +206,9 @@ export default function LandingPage({ isLightMode, themeSetter }) {
             </main>
 
             {/* Nav elements */}
-            <AnimatePresence>
+            {/* <AnimatePresence>
                 {showNav && <RootNavigations setShowNav={setShowNav} isLightMode={isLightMode} themeSetter={themeSetter} />}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </>
     )
 }

@@ -5,7 +5,7 @@ export default function HeroCards({title, value}) {
     const { border, cyanText, cardStyle } = useThemeStyles();
 
     return (
-        <div className={`cursor-default border ${border} backdrop-blur-sm bg-gradient-to-br py-2 px-[0.7rem] w-[12.5rem] rounded-xl shadow-lg ${cardStyle}`}>
+        <div className={`cursor-default border ${border} transition-colors duration-500 backdrop-blur-sm bg-gradient-to-br py-2 px-[0.7rem] w-[12.5rem] rounded-xl shadow-lg ${cardStyle}`}>
             <p className={`flex align-middle gap-1 ${cyanText}`}>
                 {title === "Location" && <MapPin className="w-5" />}
                 {title === "Expertise" && <SquareChartGantt className="w-5" />}

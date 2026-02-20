@@ -26,7 +26,7 @@ export default function LContact() {
                     <Email />
 
                     {/* Side info */}
-                    <div className="space-y-6">
+                    <div className="space-y-6 max-md:hidden">
                         <div className="flex items-center gap-3">
                             <Mail size={18} />
                             <span className="text-sm">pranjuljan68@gmail.com</span>

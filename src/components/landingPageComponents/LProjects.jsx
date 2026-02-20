@@ -67,11 +67,11 @@ const StickyCard002 = ({ cards, containerClassName = "" }) => {
       className="relative w-full max-w-7xl mx-auto min-h-screen"
     >
       <div className="sticky-cards relative flex h-screen w-full items-center justify-center px-4 md:px-8">
-        {cards.map((card, i) => (
+        {cards?.map((card, i) => (
           <div
             key={card.id}
             ref={(el) => (cardRefs.current[i] = el)}
-            className={`absolute w-full max-w-sm sm:max-w-md md:max-w-2xl lg:max-w-4xl xl:max-w-5xl ${containerClassName}`}
+            className={`absolute w-full sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl ${containerClassName}`}
             style={{ transformStyle: "preserve-3d" }}
           >
             <Tilt
@@ -83,7 +83,7 @@ const StickyCard002 = ({ cards, containerClassName = "" }) => {
               transitionSpeed={1000}
               className={`rounded-2xl shadow-md border ${githubCardBorder}`}
             >
-              <div className="flex flex-col md:flex-row min-h-[420px] md:min-h-[480px] bg-neutral-950 rounded-2xl overflow-hidden">
+              <div className="flex flex-col md:flex-row min-h-[420px] md:min-h-[480px] bg-neutral-950/98 rounded-2xl overflow-hidden">
                 {/* Image Panel */}
                 <div className="relative h-[220px] md:h-auto md:w-3/5 overflow-hidden">
                   <img
@@ -106,7 +106,7 @@ const StickyCard002 = ({ cards, containerClassName = "" }) => {
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-2">
-                      {card.tech.map((t) => (
+                      {card?.tech?.map((t) => (
                         <span
                           key={t}
                           className="text-[11px] sm:text-xs px-2.5 py-1 rounded-md bg-white/5 border border-white/10 text-white/80"
