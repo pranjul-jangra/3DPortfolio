@@ -67,37 +67,37 @@ export const featuredProjects = [
   {
     id: "expensely",
     title: "Expensely",
-    image: expensely1,
+    images: [expensely1, expensely2, expensely3, expensely4],
     description: "Personal finance app with advanced filtering, insights, and clean data visualizations.",
-    tech: ["React.js", "Redux", "Tailwind", "Chart.js", "Node.js", "MongoDB", "Cloudinary", "JWT", "Zod"],
-    liveUrl: "https://expensely-blue.vercel.app",
-    repoUrl: "https://github.com/pranjul-jangra/Expensely"
+    stacks: ["React.js", "Redux", "Tailwind", "Chart.js", "Node.js", "MongoDB", "Cloudinary", "JWT", "Zod"],
+    liveLink: "https://expensely-blue.vercel.app",
+    codeLink: "https://github.com/pranjul-jangra/Expensely"
   },
   {
     id: "sonexa",
     title: "Sonexa",
-    image: sonexa1,
+    images: [sonexa1, sonexa2, sonexa3, sonexa4],
     description: "Music streaming platform with smart playlists, category filters, and user-based grouping.",
-    tech: ["React.js", "Redux", "Tailwind", "Headless UI", "Node.js", "MongoDB", "Cloudinary", "JWT"],
-    liveUrl: "https://sonexa-chi.vercel.app/home",
-    repoUrl: "https://github.com/pranjul-jangra/Sonexa"
+    stacks: ["React.js", "Redux", "Tailwind", "Headless UI", "Node.js", "MongoDB", "Cloudinary", "JWT"],
+    liveLink: "https://sonexa-chi.vercel.app/home",
+    codeLink: "https://github.com/pranjul-jangra/Sonexa"
   },
   {
     id: "yovo",
     title: "Yovo",
-    image: yovo1,
+    images: [yovo1, yovo2, yovo3, yovo4, yovo5],
     description: "Full-stack social media platform with posts, messaging, follows, and real-time updates.",
-    tech: [ "React.js", "Zustand", "Tailwind", "Node.js", "MongoDB", "Cloudinary", "JWT", "Socket.io", "Express-Rate-Limit"],
-    liveUrl: "https://yovo.vercel.app/",
-    repoUrl: "https://github.com/pranjul-jangra/yovo"
+    stacks: [ "React.js", "Zustand", "Tailwind", "Node.js", "MongoDB", "Cloudinary", "JWT", "Socket.io", "Express-Rate-Limit"],
+    liveLink: "https://yovo.vercel.app/",
+    codeLink: "https://github.com/pranjul-jangra/yovo"
   },
   {
     id: "aeris",
     title: "Aeris",
     description: "Weather app with location-based forecasts and interactive map visualizations.",
-    tech: ["React.js", "Redux", "Tailwind", "Recharts", "Leaflet"],
-    image: aeris1,
-    liveUrl: "https://aeris-lemon.vercel.app",
-    repoUrl: "https://github.com/pranjul-jangra/Aeris"
+    stacks: ["React.js", "Redux", "Tailwind", "Recharts", "Leaflet"],
+    images: [aeris1, aeris2, aeris3, aeris4],
+    liveLink: "https://aeris-lemon.vercel.app",
+    codeLink: "https://github.com/pranjul-jangra/Aeris"
   }
 ];

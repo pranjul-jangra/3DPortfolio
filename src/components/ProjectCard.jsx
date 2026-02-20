@@ -45,11 +45,11 @@ export default function ProjectCard({ project, variants }) {
                         {
                             images.length > 1 && <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 rounded-full bg-black/30 p-1 opacity-50 group-hover:opacity-100 transition-opacity duration-200">
                                 {images.map((_, index) => (
-                                <button
-                                    key={index}
-                                    onClick={() => setCurrentImg(index)}
-                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImg ? 'bg-white scale-110' : 'bg-white/50'}`}
-                                />
+                                    <button
+                                        key={index}
+                                        onClick={() => setCurrentImg(index)}
+                                        className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImg ? 'bg-white scale-110' : 'bg-white/50'}`}
+                                    />
                                 ))}
                             </div>
                         }
@@ -57,10 +57,10 @@ export default function ProjectCard({ project, variants }) {
                         {/* Carousal buttons */}
                         {images.length > 1 && (
                             <>
-                                <button type="button" onClick={prevImage} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" aria-label="Previous Image">
+                                <button type="button" onClick={prevImage} className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-20 group-hover:opacity-100 transition-opacity duration-200" aria-label="Previous Image">
                                     <ChevronLeft size={18} />
                                 </button>
-                                <button type="button" onClick={nextImage} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200" aria-label="Next Image">
+                                <button type="button" onClick={nextImage} className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white p-1.5 rounded-full opacity-20 group-hover:opacity-100 transition-opacity duration-200" aria-label="Next Image">
                                     <ChevronRight size={18} />
                                 </button>
                             </>
@@ -86,6 +86,6 @@ export default function ProjectCard({ project, variants }) {
                     </div>
                 </motion.div>
             </Tilt>
-            </motion.div>
+        </motion.div>
     );
 }
