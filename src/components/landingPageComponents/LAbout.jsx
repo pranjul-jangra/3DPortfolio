@@ -1,4 +1,5 @@
 import useThemeStyles from "../../hooks/useThemeStyles";
+import resume from "../../assets/Pranjul-Resume.pdf";
 
 export default function LAbout() {
     const { grayText, cyanText } = useThemeStyles();
@@ -39,6 +40,15 @@ export default function LAbout() {
                     as complexity increases.
                 </p>
             </div>
+
+            {/* Resume download button */}
+            <a
+                href={resume}
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`${cyanText} underline`}
+            >Download Resume</a>
 
             {/* By the Numbers */}
             <div

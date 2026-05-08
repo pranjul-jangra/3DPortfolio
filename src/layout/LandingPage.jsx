@@ -1,5 +1,4 @@
 import { useEffect, useState, lazy } from "react"
-import { motion } from 'motion/react';
 import "./layouts.scss"
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
@@ -8,10 +7,8 @@ import useThemeStyles from '../hooks/useThemeStyles';
 import ParticleBackground from "../ui/ParticleBackground";
 // import { AnimatePresence } from "framer-motion"
 // import RootNavigations from "../components/RootNavigations";
-import Tilt from 'react-parallax-tilt';
-import resume from "../assets/Pranjul-Resume.pdf";
-import HeroCards from "../ui/HeroCards";
 import { Moon, Sun } from "lucide-react";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 import LAbout from "../components/landingPageComponents/LAbout";
 import { LProjects } from "../components/landingPageComponents/LProjects";
@@ -22,12 +19,11 @@ const LContact = lazy(() => import("../components/landingPageComponents/LContact
 
 
 
-
 export default function LandingPage({ isLightMode, themeSetter }) {
-    const { bgColor, color, fillColor, cyanText, cardStyle, border } = useThemeStyles();
+    const { bgColor, color, fillColor, cyanText, cardStyle } = useThemeStyles();
 
     const [visible, setVisible] = useState(false);
-    const [showNav, setShowNav] = useState(false);
+    // const [showNav, setShowNav] = useState(false);
     const [text, setText] = useState("Full Stack Developer");
 
     useEffect(() => {
@@ -36,11 +32,11 @@ export default function LandingPage({ isLightMode, themeSetter }) {
     }, []);
 
     // Body lock
-    useEffect(() => {
-        showNav
-            ? document.body.style.overflow = 'hidden'
-            : document.body.style.overflow = 'auto'
-    }, [showNav]);
+    // useEffect(() => {
+    //     showNav
+    //         ? document.body.style.overflow = 'hidden'
+    //         : document.body.style.overflow = 'auto'
+    // }, [showNav]);
 
     // Conditional styles
     const opacity = visible ? 'opacity-100' : 'opacity-0';
@@ -73,24 +69,6 @@ export default function LandingPage({ isLightMode, themeSetter }) {
         return () => clearTimeout(delay);
     }, []);
 
-    // Variants
-    const parentVariant = {
-        initial: { opacity: 0 },
-        animate: {
-            opacity: 1,
-            transition: {
-                duration: 1.4,
-                staggerChildren: 0.3,
-                delayChildren: 0.6
-            }
-        },
-    };
-
-    const childVariants = {
-        initial: { opacity: 0, y: 25 },
-        animate: { opacity: 1, y: 0, transition: { duration: 1.4 } }
-    };
-
 
     return (
         <>
@@ -101,46 +79,11 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                     {/* Intro overlay */}
                     <div className="absolute inset-0 flex flex-col justify-center items-start p-4 z-20 sm:p-8 md:p-16">
                         <div className="max-w-2xl">
-                            <p className={`text-2xl max-sm:text-3xl font-playfair tracking-widest uppercase mb-1.5 font-extrabold ${translate} ${opacity} transition-all duration-[1.4s] ${window.innerWidth >= 768 ? cyanText : ""}`}>Pranjul</p>
+                            <p className={`text-2xl max-sm:text-3xl font-playfair tracking-widest uppercase mb-1.5 max-md:mb-3 font-extrabold ${translate} ${opacity} transition-all duration-[1.4s] ${window.innerWidth >= 768 ? cyanText : ""}`}>Pranjul</p>
                             <h1 translate="no" className={`text-4xl md:text-6xl lg:text-7xl max-sm:text-[25px] leading-tight font-semibold whitespace-nowrap typing-cursor ${translate} ${opacity} transition-all duration-[1.4s] delay-75`}>
                                 {text}
                             </h1>
-                            <p className={`text-md max-sm:text-sm tracking-widest uppercase mt-2 font-semibold ${translate} ${opacity} transition-all duration-[1.55s]`}>Building seamless web experiences with MERN & modern tools.</p>
-
-                            <motion.div variants={parentVariant} initial="initial" animate={visible ? "animate" : ""} className={`flex gap-6 mt-6`}>
-                                {
-                                    [
-                                        { title: "Resume", value: "Download PDF" },
-                                        { title: "Location", value: "Fatehabad, Haryana" },
-                                        { title: "Expertise", value: "React.js, Node.js, MongoDB" },
-                                    ].map(({ title, value }) => (
-                                        <motion.div variants={childVariants}>
-                                            <Tilt
-                                                key={title}
-                                                glareEnable={true}
-                                                glareMaxOpacity={0.04}
-                                                scale={1.01}
-                                                tiltMaxAngleX={5}
-                                                tiltMaxAngleY={5}
-                                                transitionSpeed={1000}
-                                                className="hover:-translate-y-1 transition-transform duration-[1.1s]"
-                                            >
-                                                {title === "Resume"
-                                                    ? <a
-                                                        href={resume}
-                                                        download
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="block transition-colors duration-75"
-                                                    >
-                                                        <HeroCards title={title} value={value} />
-                                                    </a>
-                                                    : <HeroCards title={title} value={value} />}
-                                            </Tilt>
-                                        </motion.div>
-                                    ))
-                                }
-                            </motion.div>
+                            <p className={`text-md max-sm:text-sm tracking-widest uppercase mt-2 font-semibold ${translate} ${opacity} transition-all duration-[1.55s] text-wrap`}>Building seamless web experiences with MERN & modern tools.</p>
                         </div>
                     </div>
 
@@ -198,9 +141,13 @@ export default function LandingPage({ isLightMode, themeSetter }) {
 
                 <LAbout />
                 <LEducation />
-                <GitHubStats />
+                <ErrorBoundary>
+                    {/* <GitHubStats /> */}
+                </ErrorBoundary>
                 <LSkills />
-                <LProjects />
+                <ErrorBoundary>
+                    <LProjects />
+                </ErrorBoundary>
                 <LContact />
                 <Footer />
             </main>

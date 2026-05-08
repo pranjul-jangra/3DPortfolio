@@ -20,13 +20,14 @@ function SkillCard({ skill, cardBg }) {
                     {skill.proof}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-auto">
-                    {skill.usedIn.map(p => (
+                <div className="flex flex-wrap gap-2 items-center mt-auto">
+                    <span className="text-sm opacity-80">Used In:</span>
+                    {skill.usedIn.map(project_name => (
                         <span
-                            key={p}
+                            key={`${skill.id}-${project_name}`}
                             className="text-[11px] px-2 py-1 rounded-md border opacity-70"
                         >
-                            {p}
+                            {project_name}
                         </span>
                     ))}
                 </div>
@@ -61,7 +62,7 @@ export default function LSkills() {
                                     className={`rounded-2xl overflow-hidden w-full h-full border ${border} shadow-lg ${shadow} hover:-translate-y-1 transition-all duration-[1.4s] ease-out`}
                                 >
                                     <SkillCard
-                                        key={skill.label}
+                                        key={skill.id}
                                         skill={skill}
                                         githubCardBorder={githubCardBorder}
                                         cardBg={cardBg}

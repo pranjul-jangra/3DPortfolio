@@ -91,13 +91,6 @@ export const skills = [
         category: "Animations & Transitions"
     },
     {
-        label: "AOS",
-        icon: "/aos.svg",
-        description: "Scroll-triggered animation library for adding motion to elements with ease.",
-        proficiency: "Proficient",
-        category: "Animations & Transitions"
-    },
-    {
         label: "Lenis",
         icon: "/lenis.svg",
         description: "Smooth scroll library for fluid, inertia-based page navigation.",
@@ -171,13 +164,6 @@ export const skills = [
         label: "Axios",
         icon: "/axios.svg",
         description: "Promise-based HTTP client with interceptors for secure API communication and global error handling.",
-        proficiency: "Proficient",
-        category: "Other Stacks & Tools"
-    },
-    {
-        label: "Vite",
-        icon: "/Vite.js.svg",
-        description: "Fast development build tool and bundler for modern frontend.",
         proficiency: "Proficient",
         category: "Other Stacks & Tools"
     },
@@ -285,104 +271,146 @@ export const skills = [
 
 // utils/skills.js
 export const short_skills = [
-  {
-    category: "Frontend",
-    items: [
-      {
-        label: "React.js",
-        icon: "/react.svg",
-        proof: "Built SPAs with routing, protected routes, forms, and theme systems",
-        usedIn: ["Social Media App", "Expensely"]
-      },
-      {
-        label: "TypeScript",
-        icon: "/TypeScript.svg",
-        proof: "Typed large components, API contracts, and shared UI utilities",
-        usedIn: ["Portfolio", "Social Media App"]
-      },
-      {
-        label: "Tailwind CSS",
-        icon: "/Tailwind.svg",
-        proof: "Converted multi-page apps from CSS to utility-first responsive layouts",
-        usedIn: ["Portfolio", "Social Media App"]
-      },
-      {
-        label: "Motion",
-        icon: "/motion.svg",
-        proof: "Built scroll-triggered and hover-based UI animations",
-        usedIn: ["Portfolio"]
-      },
-      {
-        label: "Redux",
-        icon: "/Redux.svg",
-        proof: "Managed global auth and user state with async actions",
-        usedIn: ["Expensely"]
-      }
-    ]
-  },
-  {
-    category: "Backend",
-    items: [
-      {
-        label: "Node.js",
-        icon: "/Node.js.svg",
-        proof: "Developed REST APIs with JWT auth, pagination, and role-based access",
-        usedIn: ["Expensely", "Social Media App"]
-      },
-      {
-        label: "Express.js",
-        icon: "/Express.svg",
-        proof: "Structured middleware, controllers, and error handling layers",
-        usedIn: ["Expensely", "Social Media App"]
-      },
-      {
-        label: "MongoDB",
-        icon: "/MongoDB.svg",
-        proof: "Designed schemas for users, posts, transactions, and chat systems",
-        usedIn: ["Expensely", "Social Media App"]
-      },
-      {
-        label: "Firebase",
-        icon: "/Firebase.svg",
-        proof: "Used for auth, storage, and real-time features",
-        usedIn: ["Media Platform"]
-      }
-    ]
-  },
-  {
-    category: "Tools",
-    items: [
-      {
-        label: "Git",
-        icon: "/Git.svg",
-        proof: "Managed version control across multi-feature branches",
-        usedIn: ["All Projects"]
-      },
-      {
-        label: "GitHub",
-        icon: "/github.svg",
-        proof: "Hosted repos with issues, README docs, and CI workflows",
-        usedIn: ["All Projects"]
-      },
-      {
-        label: "JWT",
-        icon: "/jwt.svg",
-        proof: "Implemented secure auth and refresh token flows",
-        usedIn: ["Expensely", "Social Media App"]
-      },
-      {
-        label: "Axios",
-        icon: "/axios.svg",
-        proof: "Built API layers with interceptors and centralized error handling",
-        usedIn: ["All Projects"]
-      },
-      {
-        label: "Postman",
-        icon: "/Postman.svg",
-        proof: "Tested and documented REST APIs",
-        usedIn: ["All Projects"]
-      }
-    ]
-  }
+    {
+        category: "Frontend",
+        items: [
+            {
+                label: "React.js",
+                icon: "/react.svg",
+                proof: "Built SPAs with routing, protected routes, forms, and theme systems",
+                usedIn: ["Yovo", "Expensely"],
+                id: 1
+            },
+            {
+                label: "JavaScript",
+                icon: "/JavaScript.svg",
+                proof: "Built dynamic frontend logic, async flows, DOM interactions, and reusable utilities",
+                usedIn: ["All Projects"],
+                id: 13
+            },
+            {
+                label: "TypeScript",
+                icon: "/TypeScript.svg",
+                proof: "Typed large components, API contracts, and shared UI utilities",
+                usedIn: ["Yovo"],
+                id: 2
+            },
+            {
+                label: "Tailwind CSS",
+                icon: "/Tailwind.svg",
+                proof: "Converted multi-page apps from CSS to utility-first responsive layouts",
+                usedIn: ["Portfolio", "Yovo"],
+                id: 3
+            },
+            {
+                label: "Motion",
+                icon: "/motion.svg",
+                proof: "Built scroll-triggered and hover-based UI animations",
+                usedIn: ["Portfolio"],
+                id: 4
+            },
+            {
+                label: "Redux",
+                icon: "/Redux.svg",
+                proof: "Managed global auth and user state with async actions",
+                usedIn: ["Expensely", "Sonexa"],
+                id: 4
+            },
+            {
+                label: "shadcn/ui",
+                icon: "/shadcn.svg",
+                proof: "Built reusable accessible UI components with modern design systems",
+                usedIn: ["Expensely", "Yovo"],
+                id: 14
+            }
+        ]
+    },
+    {
+        category: "Backend",
+        items: [
+            {
+                label: "Node.js",
+                icon: "/Node.js.svg",
+                proof: "Developed REST APIs with JWT auth, pagination, and role-based access",
+                usedIn: ["Expensely", "Yovo"],
+                id: 5
+            },
+            {
+                label: "Express.js",
+                icon: "/Express.svg",
+                proof: "Structured middleware, controllers, and error handling layers",
+                usedIn: ["Expensely", "Yovo"],
+                id: 5
+            },
+            {
+                label: "MongoDB",
+                icon: "/MongoDB.svg",
+                proof: "Designed schemas for users, posts, transactions, and chat systems",
+                usedIn: ["Expensely", "Yovo"],
+                id: 6
+            },
+            {
+                label: "Firebase",
+                icon: "/Firebase.svg",
+                proof: "Used for auth, storage, and real-time features",
+                usedIn: ["Media Platform"],
+                id: 7
+            },
+            {
+                label: "Redis",
+                icon: "/Redis.svg",
+                proof: "Used caching and temporary storage for optimized backend performance",
+                usedIn: ["Expensely"],
+                id: 15
+            }
+        ]
+    },
+    {
+        category: "Tools",
+        items: [
+            {
+                label: "Git",
+                icon: "/Git.svg",
+                proof: "Managed version control across multi-feature branches",
+                usedIn: ["All Projects"],
+                id: 8
+            },
+            {
+                label: "GitHub",
+                icon: "/github.svg",
+                proof: "Hosted repos with issues, README docs, and CI workflows",
+                usedIn: ["All Projects"],
+                id: 9
+            },
+            {
+                label: "Docker",
+                icon: "/Docker.svg",
+                proof: "Containerized applications for consistent development and deployment environments",
+                usedIn: ["Expensely"],
+                id: 16
+            },
+            {
+                label: "JWT",
+                icon: "/jwt.svg",
+                proof: "Implemented secure auth and refresh token flows",
+                usedIn: ["Expensely", "Yovo"],
+                id: 10
+            },
+            {
+                label: "Axios",
+                icon: "/axios.svg",
+                proof: "Built API layers with interceptors and centralized error handling",
+                usedIn: ["All Projects"],
+                id: 11
+            },
+            {
+                label: "Postman",
+                icon: "/Postman.svg",
+                proof: "Tested and documented REST APIs",
+                usedIn: ["All Projects"],
+                id: 12
+            }
+        ]
+    }
 ];
 
