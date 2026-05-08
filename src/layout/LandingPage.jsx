@@ -142,7 +142,7 @@ export default function LandingPage({ isLightMode, themeSetter }) {
                 <LAbout />
                 <LEducation />
                 <ErrorBoundary>
-                    {/* <GitHubStats /> */}
+                    <GitHubStats />
                 </ErrorBoundary>
                 <LSkills />
                 <ErrorBoundary>
